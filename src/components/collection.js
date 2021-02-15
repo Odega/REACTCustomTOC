@@ -8,8 +8,10 @@ import Typography from '@material-ui/core/Typography';
 import {GiTrophy} from 'react-icons/gi';
 import Button from '@material-ui/core/Button';
 import Lesson from './lesson';
+import Trophies from './trophies';
 import config from '../config.json';
 import { GiAncientColumns } from 'react-icons/gi';
+import Collections from './collections';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -150,6 +152,7 @@ function Collection(props) {
         </Typography>
                 <div className={classes.iconStyle}>
                 <div>
+                    <Trophies trophies={collectionDetails.lessons}/>
                         <GiTrophy style={{fontSize: '100px', color: "gold", margin: 30, marginTop: 30}}/>
                         <GiTrophy style={{fontSize: '100px', color: "silver", margin: 30, marginTop: 30}}/>
                         <GiTrophy style={{fontSize: '100px', color: "rgb(205, 127, 50)", margin: 30, marginTop: 30}}/>
