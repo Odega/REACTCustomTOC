@@ -6,10 +6,13 @@ import IconButton from '@material-ui/core/IconButton';
 import LinearProgress from '@material-ui/core/LinearProgress'; 
 import { createStyles, makeStyles, withStyles } from '@material-ui/core/styles'
 import ScheduleIcon from '@material-ui/icons/Schedule';
+import {GiTrophy} from 'react-icons/gi';
+import {IconContext} from "react-icons"
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import config from '../config.json';
-import { CardHeader, Card, CardActionArea, CardMedia, CardActions } from '@material-ui/core';
+import { CardHeader, Card, CardActionArea, CardMedia, CardActions, Divider } from '@material-ui/core';
+import { icons } from 'react-icons/lib';
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -43,6 +46,11 @@ const useStyles = makeStyles((theme) =>
         styleFlex: {
             display: 'flex',
             justifyContent: 'center'
+        },
+        iconStyle: {
+            display: 'flex',
+            right: 0,
+            position: 'absolute',
         },
         lessonTitle: {
             fontWeight: 'bold',
@@ -104,6 +112,11 @@ function Lesson(props) {
 
     return <React.Fragment>
         <Card className={classes.wrapper} onClick={onClick}>
+        <div className={classes.iconStyle} >
+                <div>
+                        <GiTrophy style={{fontSize: '20px'}}/>
+                </div>
+                </div>
             <CardHeader className={classes.lessonTitle}
             subheader={
                 <Typography gutterBottom variant="inherit" variantMapping="h2" align='center'>
@@ -124,6 +137,9 @@ function Lesson(props) {
                     <Typography variant="subtitle2" gutterBottom style={{marginLeft: 5, lineHeight: 0}} >{lessonTime(props.lesson)}</Typography>
                 </div>
                 <BorderLinearProgress variant='determinate' value={props.lesson.score}/>
+
+
+
                 
 
             </CardActions>

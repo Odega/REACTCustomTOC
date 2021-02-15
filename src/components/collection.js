@@ -5,15 +5,16 @@ import Card from '@material-ui/core/Card';
 import CardView from '@material-ui/core/Card';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import {GiTrophy} from 'react-icons/gi';
 import Button from '@material-ui/core/Button';
 import Lesson from './lesson';
 import config from '../config.json';
+import { GiAncientColumns } from 'react-icons/gi';
 
 const useStyles = makeStyles(() =>
     createStyles({
         lessonsCard: {
-            width: '55%',
-            marginTop: 20,
+            width: '100%',
 
 
         },
@@ -28,7 +29,8 @@ const useStyles = makeStyles(() =>
             justifyContent: 'center',
             flexDirection: 'column',
             margin: 21,
-
+            marginLeft: 'auto',
+            marginRight: 'auto'
         },
         title: {
             textAlign: 'center',
@@ -36,17 +38,33 @@ const useStyles = makeStyles(() =>
         },
         content : {
             display: 'flex',
+            flexDirection: 'row',
+            marginBottom: 20,
+            justifyContent: 'space-between',
+            color: '#F5F5F5'
+        },
+        sideContent : {
+            display: 'flex',
             flexDirection: 'column',
-            alignItems: 'left',
-            marginBottom: 20
+            marginBottom: 20,
+            width: '55%',
+            marginTop: 20,
+            marginLeft: 20,
+            marginRight: 20
         },
         sideBar: {
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'right',
-            marginBottom: 20
-
-        }
+            width: '42%',
+            marginTop: 20,
+            marginBottom: 20,
+            marginRight: 20,
+            marginLeft: 20,
+        },
+        iconStyle: {
+            display: 'flex',
+            justifyContent: 'center',
+        },
     }),
 );
 
@@ -68,7 +86,10 @@ function makeChapter(lessons, chapters, chapt) {
 }
 
 
+
+
 function Collection(props) {
+    console.log(props);
     const classes = useStyles();
     const [collectionDetails, setCollectionDetails] = React.useState(null);
     React.useEffect(() => {
@@ -100,11 +121,11 @@ function Collection(props) {
         communication.requestCrossResource(collectionDetails.lessons[0].id, definedID, originalId);
     }
 
-    const items = [{
-        header: 'blalllol'
-    }]
 
-    return <div className={classes.content}>
+
+
+    return <div className={classes.content} >
+        <Card className={classes.sideContent}>
         {chapters.map((chapter, indx) => {
             return <Card key={indx} className={classes.lessonsCard}>
                     <Typography className={classes.title} color="textprimary" gutterBottom variant="h4">
@@ -122,7 +143,22 @@ function Collection(props) {
                     
             </Card>
 
-        })}
+        })} </Card>
+                <Card className={classes.sideBar}>
+        <Typography  className={classes.title} color="textprimary" gutterBottom variant="h4">
+                        Trofeer
+        </Typography>
+                <div className={classes.iconStyle}>
+                <div>
+                        <GiTrophy style={{fontSize: '100px', color: "gold", margin: 30, marginTop: 30}}/>
+                        <GiTrophy style={{fontSize: '100px', color: "silver", margin: 30, marginTop: 30}}/>
+                        <GiTrophy style={{fontSize: '100px', color: "rgb(205, 127, 50)", margin: 30, marginTop: 30}}/>
+                </div>
+                </div>
+
+        </Card>
+
+
         </div>
  {/*       <Button variant="primary" onClick={requestCrossResource.bind(null, config['CROSS_LESSON_DEFINED_ID'], config['CROSS_LESSON_COURSE_ORIGINAL_ID'])}>
             Or see previous course lesson
