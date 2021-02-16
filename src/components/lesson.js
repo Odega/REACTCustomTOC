@@ -13,6 +13,7 @@ import Box from '@material-ui/core/Box';
 import config from '../config.json';
 import { CardHeader, Card, CardActionArea, CardMedia, CardActions, Divider } from '@material-ui/core';
 import { icons } from 'react-icons/lib';
+import BorderLinearProgress from './progressBar'
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -81,36 +82,6 @@ function lessonTime(lesson) {
         </p>
     )
 }
-function LinearProgressWithLabel(props) {
-    return (
-      <Box display="flex" alignItems="center" lineHeight={100}>
-        <Box width="100%" mr={1}>
-          <LinearProgress variant="determinate" {...props} />
-        </Box>
-        <Box minWidth={10}>
-          <Typography variant="body2" color="textSecondary">{`${Math.round(
-            props.value,
-          )}%`}</Typography>
-        </Box>
-      </Box>
-    );
-  }
-
-  const BorderLinearProgress = withStyles((theme) => ({
-    root: {
-      height: 15,
-      borderRadius: 5,
-      lineHeight: 1,
-    },
-    colorPrimary: {
-      backgroundColor: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
-    },
-    bar: {
-      borderRadius: 5,
-      backgroundColor: '#00b300',
-    },
-
-  }))(LinearProgressWithLabel);
 
 function Lesson(props) {
     const classes = useStyles();
@@ -144,7 +115,7 @@ function Lesson(props) {
                     </ScheduleIcon>
                     <Typography variant="subtitle2" gutterBottom style={{marginLeft: 5, lineHeight: 0}} >{lessonTime(props.lesson)}</Typography>
                 </div>
-                <BorderLinearProgress variant='determinate' value={props.lesson.score} style={{lineHeight: 0}}/>
+                <BorderLinearProgress variant='determinate' value={props.lesson.score} style={{lineHeight: 0}} />
 
 
 
@@ -158,4 +129,4 @@ function Lesson(props) {
 }
 
 
-export default Lesson;
+export default Lesson; 

@@ -16,20 +16,21 @@ import SideBar from './sideBar';
 const useStyles = makeStyles(() =>
     createStyles({
         lessonsCard: {
-            width: '100%',
+            justifyContent: 'flex-end',
             marginBottom: 20,
+
         },
         lessonsGroup: {
             display: 'flex',
             flexWrap: 'wrap',
+            
         },
         row: {
             display: 'flex',
             justifyContent: 'center',
             flexDirection: 'column',
             margin: 21,
-            marginLeft: 'auto',
-            marginRight: 'auto'
+
         },
         title: {
             textAlign: 'center',
@@ -46,7 +47,7 @@ const useStyles = makeStyles(() =>
             display: 'flex',
             flexDirection: 'column',
             marginBottom: 20,
-            width: '55%',
+            width: '70%',
             marginTop: 20,
             marginLeft: 20,
             marginRight: 20,
@@ -57,12 +58,12 @@ const useStyles = makeStyles(() =>
             shadowRadius: 0,
             borderWidth: 0,
             elevation: 0,
-            border: 0
+            border: 0,
         },
         sideBar: {
             display: 'flex',
             flexDirection: 'column',
-            width: '42%',
+            width: '30%',
             marginTop: 20,
             marginBottom: 20,
             marginRight: 20,
