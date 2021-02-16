@@ -151,7 +151,7 @@ function Collection(props) {
     
         })} 
         </Card>
-            <SideBar classes={classes} chapters={chapters} cmdr={cmdr}/>
+            <SideBar className={classes.sideBar} classes={classes} chapters={chapters} cmdr={cmdr}/>
         </div>
 
        
