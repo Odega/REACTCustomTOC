@@ -10,6 +10,8 @@ import Button from '@material-ui/core/Button';
 import Lesson from './lesson';
 import config from '../config.json';
 import { GiAncientColumns } from 'react-icons/gi';
+import Collections from './collections';
+import Trophies from './trophies';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -106,7 +108,7 @@ function Collection(props) {
     React.useEffect(() => {
         communication.requestCollectionData(props.collection.id).then(function (data) {
             setCollectionDetails(data.data);
-            console.log(data.data);
+            
         });
     }, []);
 
@@ -161,6 +163,7 @@ function Collection(props) {
         </Typography>
                 <div className={classes.iconStyle}>
                 <div>
+                <Trophies chapters={chapters}/>
                         <GiTrophy style={{fontSize: '100px', color: "gold", margin: 30, marginTop: 30}}/>
                         <GiTrophy style={{fontSize: '100px', color: "silver", margin: 30, marginTop: 30}}/>
                         <GiTrophy style={{fontSize: '100px', color: "rgb(205, 127, 50)", margin: 30, marginTop: 30}}/>
