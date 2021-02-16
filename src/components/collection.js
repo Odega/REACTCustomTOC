@@ -101,7 +101,7 @@ function makeChapter(lessons, chapters, chapt) {
 
 
 
-
+let cmdr;
 function Collection(props) {
     const classes = useStyles();
     const [collectionDetails, setCollectionDetails] = React.useState(null);
@@ -129,7 +129,7 @@ function Collection(props) {
     });
 
     chapters = chapters.filter(chapt => chapt.lessons.length !== 0);
-
+    cmdr = chapters;
     const requestCrossResource = function (definedID, originalId) {
         communication.requestCrossResource(collectionDetails.lessons[0].id, definedID, originalId);
     }
@@ -158,7 +158,7 @@ function Collection(props) {
     
         })} 
         </Card>
-            <SideBar classes={classes} chapters={chapters}/>
+            <SideBar classes={classes} chapters={chapters} cmdr={cmdr}/>
         </div>
 
        

@@ -1,11 +1,18 @@
 import React from 'react';
 
-function Trophies(props) {
+function Trophies({cmdr}) {
     let tGold,tSilver,tBronze = 0;
+    let scr = 0;
     console.log("----------");
-    //console.log({props});
-    console.log(props);
-    return ( <div> TROPHIES </div>)
+    console.log({cmdr});
+
+    cmdr.forEach(indx =>
+            indx.lessons.forEach(indy =>
+                console.log(indy.score)
+                )
+        )
+    
+    return ( <div> TROPHIES  </div>)
 
 /*
     props.lesson.forEach(lesson => {
