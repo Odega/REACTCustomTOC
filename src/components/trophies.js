@@ -9,8 +9,6 @@ function Trophies({cmdr, classes}) {
     let tBronze = 0;
     let totTime = 0;
     let totErr = 0;
-    console.log("----------");
-    console.log({cmdr});
 
     cmdr.forEach(indx =>
             indx.lessons.forEach(indy =>{

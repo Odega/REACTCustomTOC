@@ -12,6 +12,7 @@ import config from '../config.json';
 import { GiAncientColumns } from 'react-icons/gi';
 import Collections from './collections';
 import SideBar from './sideBar';
+import TopChapters from './topChapters';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -108,32 +109,41 @@ function Collection(props) {
     if (!collectionDetails) {
         return <Loader />
     }
-
+    console.log("----------------------------------------------------");
+    console.log(collectionDetails);
+    console.log("----------------------------------------------------");
     let chapters = [];
     const data = {
         title: null,
         lessons: collectionDetails.lessons.filter(lesson => !!!lesson.chapter)
     }
+    let topChapters = [];
+    
     chapters.push(data)
     collectionDetails.chapters.forEach((chapt) => {
         if (chapt.parent === null) {
+            topChapters.push({"id": chapt.id, "title": chapt.title, "used": false});
             chapters = chapters.concat(makeChapter(collectionDetails.lessons, collectionDetails.chapters, chapt));
         }
     });
-
+    console.log("xxxxxxxxxxxxxxxxx");
+    console.log(topChapters);
+    console.log("xxxxxxxxxxxxxxxxx");
     chapters = chapters.filter(chapt => chapt.lessons.length !== 0);
     cmdr = chapters;
     const requestCrossResource = function (definedID, originalId) {
         communication.requestCrossResource(collectionDetails.lessons[0].id, definedID, originalId);
     }
 
-
-
-
     return <div className={classes.content} >
         <Card className={classes.sideContent}>
+            
         {chapters.map((chapter, indx) => {
-            return <Card key={indx} className={classes.lessonsCard}>
+            console.log(chapter);
+            return (
+                <>
+                <TopChapters topChapters={topChapters} chapter={chapter}/>
+                <Card key={indx} className={classes.lessonsCard}>
                     <Typography className={classes.title} color="textprimary" gutterBottom variant="h4">
                         {chapter.title}
                     </Typography>
@@ -148,7 +158,8 @@ function Collection(props) {
                     </div>  
                     
                 </Card>
-    
+                </>
+        )
         })} 
         </Card>
             <SideBar className={classes.sideBar} classes={classes} chapters={chapters} cmdr={cmdr}/>
