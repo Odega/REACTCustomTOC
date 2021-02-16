@@ -91,7 +91,6 @@ function makeChapter(lessons, chapters, chapt) {
 
 
 function Collection(props) {
-    
     const classes = useStyles();
     const [collectionDetails, setCollectionDetails] = React.useState(null);
     React.useEffect(() => {
