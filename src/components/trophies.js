@@ -8,7 +8,7 @@ function Trophies({cmdr}) {
 
     cmdr.forEach(indx =>
             indx.lessons.forEach(indy =>
-                console.log(indy.score)
+                console.log(indy.title + " - " + indy.score)
                 )
         )
     

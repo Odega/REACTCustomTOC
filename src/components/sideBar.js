@@ -7,9 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import Trophies from './trophies';
 
 function SideBar({classes, cmdr}) {
-    console.log("-------");
-    console.log({cmdr});
-
     return <React.Fragment>
         
                 <Card className={classes.sideBar}>
