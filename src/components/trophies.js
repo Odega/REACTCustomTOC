@@ -15,7 +15,7 @@ function Trophies({cmdr}) {
                 if(indy.score >= 90){
                     tGold++;
                 }
-                if(indy.score > 50 && indy.score < 90){
+                if(indy.score >= 50 && indy.score < 90){
                     tSilver++;
                 }
                 if(indy.score >= 10 && indy.score < 50){
