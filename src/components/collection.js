@@ -17,16 +17,12 @@ const useStyles = makeStyles(() =>
     createStyles({
         lessonsCard: {
             width: '100%',
-            marginBottom: 20
-
-
+            marginBottom: 20,
         },
         lessonsGroup: {
             display: 'flex',
             flexWrap: 'wrap',
-
         },
-
         row: {
             display: 'flex',
             justifyContent: 'center',
@@ -45,8 +41,6 @@ const useStyles = makeStyles(() =>
             marginBottom: 20,
             justifyContent: 'space-between',
             color: '#F5F5F5',
-
-
         },
         sideContent : {
             display: 'flex',
@@ -64,7 +58,6 @@ const useStyles = makeStyles(() =>
             borderWidth: 0,
             elevation: 0,
             border: 0
-    
         },
         sideBar: {
             display: 'flex',
@@ -101,7 +94,7 @@ function makeChapter(lessons, chapters, chapt) {
 
 
 
-
+let cmdr;
 function Collection(props) {
     const classes = useStyles();
     const [collectionDetails, setCollectionDetails] = React.useState(null);
@@ -129,7 +122,7 @@ function Collection(props) {
     });
 
     chapters = chapters.filter(chapt => chapt.lessons.length !== 0);
-
+    cmdr = chapters;
     const requestCrossResource = function (definedID, originalId) {
         communication.requestCrossResource(collectionDetails.lessons[0].id, definedID, originalId);
     }
@@ -158,7 +151,7 @@ function Collection(props) {
     
         })} 
         </Card>
-            <SideBar classes={classes} chapters={chapters}/>
+            <SideBar classes={classes} chapters={chapters} cmdr={cmdr}/>
         </div>
 
        

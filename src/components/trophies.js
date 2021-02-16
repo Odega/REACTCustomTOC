@@ -1,31 +1,49 @@
 import React from 'react';
 
-function Trophies(props) {
-    let tGold,tSilver,tBronze = 0;
+function Trophies({cmdr}) {
+    let tGold = 0;
+    let tSilver = 0;
+    let tBronze = 0;
+    let totTime = 0;
+    let totErr = 0;
     console.log("----------");
-    //console.log({props});
-    console.log(props);
-    return ( <div> TROPHIES </div>)
+    console.log({cmdr});
 
-/*
-    props.lesson.forEach(lesson => {
-        if(lesson.score > 0.9){
-            tGold++;
+    cmdr.forEach(indx =>
+            indx.lessons.forEach(indy =>{
+                //console.log(indy.name + " - " + indy.score)
+                if(indy.score >= 90){
+                    tGold++;
+                }
+                if(indy.score >= 50 && indy.score < 90){
+                    tSilver++;
+                }
+                if(indy.score >= 10 && indy.score < 50){
+                    tBronze++;
+                }
+                totErr += indy.errors;
+                //console.log(formatDate(indy.time));
+                //console.log(totTime + " + " + indy.time);
+                totTime = totTime + parseInt(indy.time);
+                //console.log("Nytid: " + totTime);
+            }
+                )
+        )
+        function formatDate(ms) {
+            const date = new Date(Number(ms))
+            return `${date.getUTCHours()}h ${date.getMinutes()}m ${date.getSeconds()}s`
         }
-        if(lesson.score > 0.5 && lesson.score < 0.9){
-            tSilver++;
-        }
-        if(lesson.score > 0.1 && lesson.score < 0.5){
-            tBronze++;
-        }
-        
-    })
+
     console.log(tGold + " " + tSilver + " " + tBronze);
+    console.log(totErr);
+    console.log(formatDate(totTime));
 
-    return (<React.Fragment>
-    <p>{tGold}{tSilver}{tBronze}</p>
+    return (
+    <React.Fragment>
+    <p>Gull: {tGold} Sølv: {tSilver} Bronse: {tBronze}</p>
+    <p>Total feil: {totErr}</p>
+    <p>Total tid: {formatDate(totTime)}</p>
     </React.Fragment>);
-    */
 }
 
 
