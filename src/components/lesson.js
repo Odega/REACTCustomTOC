@@ -24,7 +24,8 @@ const useStyles = makeStyles((theme) =>
             height: '20rem',
             width: '16rem',
             textAlign: 'center',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            overflow: 'visible'
         },
         buttonProgress: {
             position: 'absolute',
@@ -41,7 +42,7 @@ const useStyles = makeStyles((theme) =>
             display: 'flex',
             justifyContent: 'center',
             width: '16rem',
-            maxWidth: '100rem'
+            maxWidth: '100rem',
         },
         styleFlex: {
             display: 'flex',
@@ -49,8 +50,16 @@ const useStyles = makeStyles((theme) =>
         },
         iconStyle: {
             display: 'flex',
-            right: 0,
+            color: 'white',
+            right: -8,
+            top: -5,
             position: 'absolute',
+            borderRadius: '60%',
+            fontSize: '25px',
+            lineHeight: 0,
+            backgroundColor: 'grey',
+            border: '3px solid grey'
+            
         },
         lessonTitle: {
             fontWeight: 'bold',
@@ -91,7 +100,7 @@ function LinearProgressWithLabel(props) {
     root: {
       height: 15,
       borderRadius: 5,
-      lineHeight: 100,
+      lineHeight: 1,
     },
     colorPrimary: {
       backgroundColor: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
@@ -104,7 +113,6 @@ function LinearProgressWithLabel(props) {
   }))(LinearProgressWithLabel);
 
 function Lesson(props) {
-    console.log({props});
     const classes = useStyles();
     const onClick = React.useCallback(() => {
         communication.requestOpenLesson(props.lesson.id);
@@ -114,7 +122,7 @@ function Lesson(props) {
         <Card className={classes.wrapper} onClick={onClick}>
         <div className={classes.iconStyle} >
                 <div>
-                        <GiTrophy style={{fontSize: '20px'}}/>
+                        <GiTrophy />
                 </div>
                 </div>
             <CardHeader className={classes.lessonTitle}
@@ -126,7 +134,7 @@ function Lesson(props) {
             <div className={classes.cardImgCenter}>
                 <CardMedia
                     className={classes.media}
-                    style={{ width: 130, height: 100, alignContent: 'center' }}
+                    style={{ width: 130, height: 100, alignContent: 'center', borderRadius: '10%' }}
                     image={`${config['APPLICATION_BASE_URL']}${props.lesson.icon}`}
                 /></div>
             <CardActions className={classes.wrapper}>
@@ -136,7 +144,7 @@ function Lesson(props) {
                     </ScheduleIcon>
                     <Typography variant="subtitle2" gutterBottom style={{marginLeft: 5, lineHeight: 0}} >{lessonTime(props.lesson)}</Typography>
                 </div>
-                <BorderLinearProgress variant='determinate' value={props.lesson.score}/>
+                <BorderLinearProgress variant='determinate' value={props.lesson.score} style={{lineHeight: 0}}/>
 
 
 

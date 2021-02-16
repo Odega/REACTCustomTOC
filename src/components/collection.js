@@ -15,6 +15,7 @@ const useStyles = makeStyles(() =>
     createStyles({
         lessonsCard: {
             width: '100%',
+            marginBottom: 20
 
 
         },
@@ -41,7 +42,9 @@ const useStyles = makeStyles(() =>
             flexDirection: 'row',
             marginBottom: 20,
             justifyContent: 'space-between',
-            color: '#F5F5F5'
+            color: '#F5F5F5',
+
+
         },
         sideContent : {
             display: 'flex',
@@ -50,7 +53,16 @@ const useStyles = makeStyles(() =>
             width: '55%',
             marginTop: 20,
             marginLeft: 20,
-            marginRight: 20
+            marginRight: 20,
+            backgroundColor: '#F5F5F5',
+            shadowColor: 'rgba(0,0,0, 0.0)',
+            shadowOffset: { height: 0, width: 0 },
+            shadowOpacity: 0, //default is 1
+            shadowRadius: 0,
+            borderWidth: 0,
+            elevation: 0,
+            border: 0
+    
         },
         sideBar: {
             display: 'flex',
@@ -89,7 +101,6 @@ function makeChapter(lessons, chapters, chapt) {
 
 
 function Collection(props) {
-    console.log(props);
     const classes = useStyles();
     const [collectionDetails, setCollectionDetails] = React.useState(null);
     React.useEffect(() => {
