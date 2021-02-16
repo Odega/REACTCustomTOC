@@ -11,7 +11,7 @@ import Lesson from './lesson';
 import config from '../config.json';
 import { GiAncientColumns } from 'react-icons/gi';
 import Collections from './collections';
-import Trophies from './trophies';
+import SideBar from './sideBar';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -154,26 +154,14 @@ function Collection(props) {
                         })}
                     </div>  
                     
-            </Card>
-
-        })} </Card>
-                <Card className={classes.sideBar}>
-        <Typography  className={classes.title} color="textprimary" gutterBottom variant="h4">
-                        Trofeer
-        </Typography>
-                <div className={classes.iconStyle}>
-                <div>
-                <Trophies chapters={chapters}/>
-                        <GiTrophy style={{fontSize: '100px', color: "gold", margin: 30, marginTop: 30}}/>
-                        <GiTrophy style={{fontSize: '100px', color: "silver", margin: 30, marginTop: 30}}/>
-                        <GiTrophy style={{fontSize: '100px', color: "rgb(205, 127, 50)", margin: 30, marginTop: 30}}/>
-                </div>
-                </div>
-
+                </Card>
+    
+        })} 
         </Card>
-
-
+            <SideBar classes={classes} chapters={chapters}/>
         </div>
+
+       
  {/*       <Button variant="primary" onClick={requestCrossResource.bind(null, config['CROSS_LESSON_DEFINED_ID'], config['CROSS_LESSON_COURSE_ORIGINAL_ID'])}>
             Or see previous course lesson
     </Button> */}
