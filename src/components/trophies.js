@@ -11,13 +11,13 @@ function Trophies({cmdr}) {
     cmdr.forEach(indx =>
             indx.lessons.forEach(indy =>{
                 //console.log(indy.name + " - " + indy.score)
-                if(indy.score > 0.9){
+                if(indy.score >= 90){
                     tGold++;
                 }
-                if(indy.score > 0.5 && indy.score < 0.9){
+                if(indy.score > 50 && indy.score < 90){
                     tSilver++;
                 }
-                if(indy.score > 0.1 && indy.score < 0.5){
+                if(indy.score >= 10 && indy.score < 50){
                     tBronze++;
                 }
             }
