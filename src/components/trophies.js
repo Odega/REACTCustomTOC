@@ -2,7 +2,12 @@ import React from 'react';
 
 function Trophies(props) {
     let tGold,tSilver,tBronze = 0;
+    console.log("----------");
+    //console.log({props});
+    console.log(props);
+    return ( <div> TROPHIES </div>)
 
+/*
     props.lesson.forEach(lesson => {
         if(lesson.score > 0.9){
             tGold++;
@@ -15,10 +20,12 @@ function Trophies(props) {
         }
         
     })
+    console.log(tGold + " " + tSilver + " " + tBronze);
 
-    return <React.Fragment>
+    return (<React.Fragment>
     <p>{tGold}{tSilver}{tBronze}</p>
-    </React.Fragment>
+    </React.Fragment>);
+    */
 }
 
 

@@ -104,7 +104,6 @@ function LinearProgressWithLabel(props) {
   }))(LinearProgressWithLabel);
 
 function Lesson(props) {
-    console.log({props});
     const classes = useStyles();
     const onClick = React.useCallback(() => {
         communication.requestOpenLesson(props.lesson.id);
