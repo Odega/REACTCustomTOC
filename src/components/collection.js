@@ -12,6 +12,7 @@ import config from '../config.json';
 import { GiAncientColumns } from 'react-icons/gi';
 import Collections from './collections';
 import SideBar from './sideBar';
+import TopChapters from './topChapters';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -79,6 +80,7 @@ function makeChapter(lessons, chapters, chapt) {
     let toReturn = [];
     const data = {
         title: chapt.title,
+        parent: chapt.parent,
         lessons: lessons.filter(lesson => lesson.chapter === chapt.id)
     }
     toReturn.push(data);
@@ -91,8 +93,6 @@ function makeChapter(lessons, chapters, chapt) {
 
     return toReturn;
 }
-
-
 
 let cmdr;
 function Collection(props) {
@@ -108,33 +108,43 @@ function Collection(props) {
     if (!collectionDetails) {
         return <Loader />
     }
-
+    console.log("----------------------------------------------------");
+    console.log(collectionDetails);
+    console.log("----------------------------------------------------");
     let chapters = [];
     const data = {
         title: null,
         lessons: collectionDetails.lessons.filter(lesson => !!!lesson.chapter)
     }
+    let topChapters = [];
+    
     chapters.push(data)
     collectionDetails.chapters.forEach((chapt) => {
+        topChapters.push({"id": chapt.id, "title": chapt.title, "used": false, "parent": chapt.parent});
         if (chapt.parent === null) {
             chapters = chapters.concat(makeChapter(collectionDetails.lessons, collectionDetails.chapters, chapt));
         }
     });
-
+    console.log("xxxxxxxxxxxxxxxxx");
+    console.log(topChapters);
+    console.log("xxxxxxxxxxxxxxxxx");
     chapters = chapters.filter(chapt => chapt.lessons.length !== 0);
     cmdr = chapters;
     const requestCrossResource = function (definedID, originalId) {
         communication.requestCrossResource(collectionDetails.lessons[0].id, definedID, originalId);
     }
 
-
-
-
     return <div className={classes.content} >
         <Card className={classes.sideContent}>
+            
         {chapters.map((chapter, indx) => {
-            return <Card key={indx} className={classes.lessonsCard}>
-                    <Typography className={classes.title} color="textprimary" gutterBottom variant="h4">
+            console.log({chapter} + " - " + indx);
+            
+            return (
+                <>
+                <TopChapters topChapters={topChapters} chapter={chapter} indx={indx}/>
+                <Card key={indx} className={classes.lessonsCard}>
+                    <Typography className={classes.title} color="textprimary" gutterBottom variant="h5">
                         {chapter.title}
                     </Typography>
                     <div className={classes.lessonsGroup}>
@@ -148,7 +158,8 @@ function Collection(props) {
                     </div>  
                     
                 </Card>
-    
+                </>
+        )
         })} 
         </Card>
             <SideBar className={classes.sideBar} classes={classes} chapters={chapters} cmdr={cmdr}/>
