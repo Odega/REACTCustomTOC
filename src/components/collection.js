@@ -80,6 +80,7 @@ function makeChapter(lessons, chapters, chapt) {
     let toReturn = [];
     const data = {
         title: chapt.title,
+        parent: chapt.parent,
         lessons: lessons.filter(lesson => lesson.chapter === chapt.id)
     }
     toReturn.push(data);
@@ -92,8 +93,6 @@ function makeChapter(lessons, chapters, chapt) {
 
     return toReturn;
 }
-
-
 
 let cmdr;
 function Collection(props) {
@@ -121,8 +120,8 @@ function Collection(props) {
     
     chapters.push(data)
     collectionDetails.chapters.forEach((chapt) => {
+        topChapters.push({"id": chapt.id, "title": chapt.title, "used": false, "parent": chapt.parent});
         if (chapt.parent === null) {
-            topChapters.push({"id": chapt.id, "title": chapt.title, "used": false});
             chapters = chapters.concat(makeChapter(collectionDetails.lessons, collectionDetails.chapters, chapt));
         }
     });
@@ -139,12 +138,13 @@ function Collection(props) {
         <Card className={classes.sideContent}>
             
         {chapters.map((chapter, indx) => {
-            console.log(chapter);
+            console.log({chapter} + " - " + indx);
+            
             return (
                 <>
-                <TopChapters topChapters={topChapters} chapter={chapter}/>
+                <TopChapters topChapters={topChapters} chapter={chapter} indx={indx}/>
                 <Card key={indx} className={classes.lessonsCard}>
-                    <Typography className={classes.title} color="textprimary" gutterBottom variant="h4">
+                    <Typography className={classes.title} color="textprimary" gutterBottom variant="h5">
                         {chapter.title}
                     </Typography>
                     <div className={classes.lessonsGroup}>
