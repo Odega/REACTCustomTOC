@@ -6,8 +6,6 @@ import Collections from './components/collections';
 import communication from './communication/communication';
 import CollectionNotFound from './components/notFound';
 
-
-
 function App() {
   const documentHeight = useElementHeight(document.documentElement);
   const [collectionsState, setCollectionsState] = React.useState(null);
@@ -41,7 +39,7 @@ function App() {
   if (!isCommunicationInitialized) {
     console.log('false');
     console.log('Start Loading');
-    return <Loader />;
+    return <Loader />
     console.log('Loading');
   }
 
