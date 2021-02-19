@@ -13,6 +13,7 @@ import { GiAncientColumns } from 'react-icons/gi';
 import Collections from './collections';
 import SideBar from './sideBar';
 import TopChapters from './topChapters';
+import M from 'materialize-css';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -129,6 +130,10 @@ function Collection(props) {
     console.log("xxxxxxxxxxxxxxxxx");
     console.log(topChapters);
     console.log("xxxxxxxxxxxxxxxxx");
+    // MaterializeCSS Expandable UL
+    var elems = document.querySelectorAll('.collapsible');
+    var instances = M.Collapsible.init(elems, false);
+
     chapters = chapters.filter(chapt => chapt.lessons.length !== 0);
     cmdr = chapters;
     const requestCrossResource = function (definedID, originalId) {
@@ -144,10 +149,15 @@ function Collection(props) {
             return (
                 <>
                 <TopChapters topChapters={topChapters} chapter={chapter} indx={indx}/>
-                <Card key={indx} className={classes.lessonsCard}>
-                    <Typography className={classes.title} color="textprimary" gutterBottom variant="h5">
+                <ul class="collapsible popout">
+                    <li>
+                    <div class="collapsible-header"><Typography className={classes.title} color="textprimary" gutterBottom variant="h5">
                         {chapter.title}
-                    </Typography>
+                    </Typography></div>
+                    <div class="collapsible-body">
+
+                <Card key={indx} className={classes.lessonsCard}>
+                    
                     <div className={classes.lessonsGroup}>
                         {chapter.lessons.map((lesson, lessonIndex) => {
                             return (
@@ -159,6 +169,9 @@ function Collection(props) {
                     </div>  
                     
                 </Card>
+                </div>
+                    </li>
+                </ul>
                 </>
         )
         })} 
