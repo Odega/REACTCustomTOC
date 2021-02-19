@@ -36,4 +36,5 @@ function LinearProgressWithLabel(props) {
     },
 
   }))(LinearProgressWithLabel);
+  
   export default BorderLinearProgress;

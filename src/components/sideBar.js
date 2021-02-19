@@ -11,7 +11,7 @@ function SideBar({cmdr, classes}) {
     return (
     <React.Fragment>
         <Card className={classes.sideBar}>
-            <Trophies cmdr={cmdr} classes={classes}/>   
+            <Trophies cmdr={cmdr} classes={classes}/> 
         </Card> 
     </React.Fragment>
     )
