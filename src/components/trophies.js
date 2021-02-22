@@ -56,23 +56,7 @@ function Trophies({cmdr, classes}) {
 
         </Card>
         </div>
-        <div style={{margin:20}}>
-
-            <Card className={classes.wrapper}>
-            <Typography className={classes.title} color="textprimary" gutterBottom variant="h4">
-            Trofeer
-            </Typography>
-                <GiTrophy style={{fontSize: '100px', color: "gold", margin: 30, marginTop: 30}}>
-                    {tGold}
-                    </GiTrophy>
-                <GiTrophy style={{fontSize: '100px', color: "silver", margin: 30, marginTop: 30}}/>
-                <GiTrophy style={{fontSize: '100px', color: "rgb(205, 127, 50)", margin: 30, marginTop: 30}}/>
-                <Typography style={{fontSize: '40px', color: "black", margin: 30, wordSpacing: 128, marginLeft: 70, marginTop: 0}}>{tGold} {tSilver} {tBronze}</Typography>
-                
-
-            </Card>
-            </div>
-            <div style={{margin: 20}}>
+        <div style={{margin: 20}}>
             <Card className={classes.wrapper}>
                 <Typography className={classes.title} color="textprimary" gutterBottom variant="h4">
                  Total progresjon
@@ -83,20 +67,21 @@ function Trophies({cmdr, classes}) {
 
         </Card>
         </div>
+        <div style={{margin:20}}>
 
-            <div style={{margin: 20}}>
             <Card className={classes.wrapper}>
-                <Typography className={classes.title} color="textprimary" gutterBottom variant="h4">
-                 Feil totalt
-                </Typography>
-                <BorderLinearProgress variant='determinate' value={totErr} style={{lineHeight: 0, margin:20}}/>
+            <Typography className={classes.title} color="textprimary" gutterBottom variant="h4">
+            Trofeer
+            </Typography>
+            <div style={{textAlign: 'center'}}>
+                <GiTrophy style={{fontSize: '100px', color: "gold", margin: 30, marginTop: 30}}/>
+                <GiTrophy style={{fontSize: '100px', color: "silver", margin: 30, marginTop: 30}}/>
+                <GiTrophy style={{fontSize: '100px', color: "rgb(205, 127, 50)", margin: 30, marginTop: 30}}/>
+                <Typography style={{fontSize: '40px', color: "black", margin: 30, wordSpacing: 128, marginLeft: 40, marginTop: 0}}>{tGold} {tSilver} {tBronze}</Typography>
+                </div>
 
-
-
-
-        </Card>
-        </div>
-            
+            </Card>
+            </div>
 
     </React.Fragment>
     );

@@ -23,8 +23,8 @@ function LinearProgressWithLabel(props) {
  
   const BorderLinearProgress = withStyles((theme) => ({
     root: {
-      height: 15,
-      borderRadius: 5,
+      height: 20,
+      borderRadius: 50,
       lineHeight: 1,
     },
     colorPrimary: {

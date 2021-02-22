@@ -14,6 +14,7 @@ import Collections from './collections';
 import SideBar from './sideBar';
 import TopChapters from './topChapters';
 import M from 'materialize-css';
+import BorderLinearProgress from './progressBar'
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -49,11 +50,12 @@ const useStyles = makeStyles(() =>
             display: 'flex',
             flexDirection: 'column',
             marginBottom: 20,
-            width: '70%',
+            width: '73%',
             marginTop: 20,
             marginLeft: 20,
             marginRight: 20,
-            backgroundColor: '#F5F5F5',
+            // backgroundColor: '#F5F5F5',
+            backgroundColor: 'white',
             shadowColor: 'rgba(0,0,0, 0.0)',
             shadowOffset: { height: 0, width: 0 },
             shadowOpacity: 0, //default is 1
@@ -65,7 +67,7 @@ const useStyles = makeStyles(() =>
         sideBar: {
             display: 'flex',
             flexDirection: 'column',
-            width: '30%',
+            width: '27%',
             marginTop: 20,
             marginBottom: 20,
             marginRight: 20,
@@ -75,6 +77,10 @@ const useStyles = makeStyles(() =>
             display: 'flex',
             justifyContent: 'center',
         },
+        popupStyle: {
+            display: 'flex',
+            alignItems: 'center'
+        }
     }),
 );
 
@@ -150,10 +156,13 @@ function Collection(props) {
                 <>
                 <TopChapters topChapters={topChapters} chapter={chapter} indx={indx}/>
                 <ul class="collapsible popout">
-                    <li>
-                    <div class="collapsible-header"><Typography className={classes.title} color="textprimary" gutterBottom variant="h5">
-                        {chapter.title}
-                    </Typography></div>
+                    <li class="popupStyle">
+                    <div class="collapsible-header" style={{width: '100%'}}><Typography className={classes.title} color="textprimary" gutterBottom variant="h5">
+                    {chapter.title} 
+                    </Typography>
+                    </div>
+                    
+                    
                     <div class="collapsible-body">
 
                 <Card key={indx} className={classes.lessonsCard}>
