@@ -3,12 +3,11 @@ import communication from '../communication/communication';
 import Loader from './loader';
 import Card from '@material-ui/core/Card';
 import CardView from '@material-ui/core/Card';
-import Avatar from '@material-ui/core/Avatar';
-import AvatarGroup from '@material-ui/lab/AvatarGroup';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import {GiTrophy} from 'react-icons/gi';
 import Button from '@material-ui/core/Button';
+import AvatarGroups from './avatarGroups'
 import Lesson from './lesson';
 import config from '../config.json';
 import { GiAncientColumns } from 'react-icons/gi';
@@ -77,6 +76,10 @@ const useStyles = makeStyles(() =>
             display: 'flex',
             justifyContent: 'center',
         },
+        avatarGroupsStyle: {
+            display: 'flex',
+            justifyContent: 'right',
+        },
     }),
 );
 
@@ -112,9 +115,9 @@ function Collection(props) {
     if (!collectionDetails) {
         return <Loader />
     }
-    console.log("----------------------------------------------------");
-    console.log(collectionDetails);
-    console.log("----------------------------------------------------");
+    //console.log("----------------------------------------------------");
+    //console.log(collectionDetails);
+    //console.log("----------------------------------------------------");
     let chapters = [];
     const data = {
         title: null,
@@ -129,9 +132,9 @@ function Collection(props) {
             chapters = chapters.concat(makeChapter(collectionDetails.lessons, collectionDetails.chapters, chapt));
         }
     });
-    console.log("xxxxxxxxxxxxxxxxx");
-    console.log(topChapters);
-    console.log("xxxxxxxxxxxxxxxxx");
+    //console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+    //console.log(topChapters);
+    //console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
     // MaterializeCSS Expandable UL
     var elems = document.querySelectorAll('.collapsible');
     var instances = M.Collapsible.init(elems, false);
@@ -146,24 +149,20 @@ function Collection(props) {
         <Card className={classes.sideContent}>
             
         {chapters.map((chapter, indx) => {
-            console.log({chapter} + " - " + indx);
+            //console.log(JSON.stringify({chapter}) + " - " + indx);
             
             return (
                 <>
                 <TopChapters topChapters={topChapters} chapter={chapter} indx={indx}/>
                 <ul class="collapsible popout">
                     <li>
-                    <div class="collapsible-header">
+                    <div class="collapsible-header" style={{flexDirection: 'row'}}>
                         <Typography className={classes.title} color="textprimary" gutterBottom variant="h5">
                             {chapter.title}
                         </Typography>
-                        <AvatarGroup max={4}>
-                            <Avatar alt="Remy Sharp" src="../../img/trophy.svg" />
-                            <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-                            <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
-                            <Avatar alt="Agnes Walker" src="/static/images/avatar/4.jpg" />
-                            <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" />
-                        </AvatarGroup>
+                        <div id="avatGrp" style={{marginLeft: 'auto'}}>
+                            <AvatarGroups chapter={chapter} />
+                        </div>
                     </div>
                     <div class="collapsible-body">
 
