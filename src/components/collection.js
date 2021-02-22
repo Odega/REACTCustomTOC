@@ -153,9 +153,10 @@ function Collection(props) {
                 <TopChapters topChapters={topChapters} chapter={chapter} indx={indx}/>
                 <ul class="collapsible popout">
                     <li>
-                    <div class="collapsible-header" style={{width: '100%'}}><Typography className={classes.title} color="textprimary" gutterBottom variant="h5">
-                    {chapter.title} 
-                    </Typography>
+                    <div class="collapsible-header">
+                        <Typography className={classes.title} color="textprimary" gutterBottom variant="h5">
+                            {chapter.title} 
+                        </Typography>
                     </div>  
                     <div class="collapsible-body">
                 <Card key={indx} className={classes.lessonsCard}>
