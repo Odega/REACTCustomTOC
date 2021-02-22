@@ -13,7 +13,7 @@ function TopChapters({topChapters, chapter, indx}) {
         let topChap = topChapters[index].title;
         let topChapParent = topChapters[index].parent;
 
-        console.log({topChap});
+        //console.log({topChap});
 
         if (topChapParent == null){
             if(!isUsed.includes(topChap)){

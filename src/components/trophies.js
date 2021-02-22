@@ -11,8 +11,8 @@ function Trophies({cmdr, classes}) {
     let totTime = 0;
     let totErr = 0;
     let totScr = 0;
-    console.log("----------");
-    console.log({cmdr});
+    //console.log("----------");
+    //console.log({cmdr});
 
     cmdr.forEach(indx =>
             indx.lessons.forEach(indy =>{
