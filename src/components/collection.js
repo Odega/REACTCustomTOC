@@ -157,12 +157,15 @@ function Collection(props) {
                 <>
                 <TopChapters topChapters={topChapters} chapter={chapter} indx={indx}/>
                 <ul class="collapsible popout">
-                    <li>           
-                    <div class="collapsible-header">
+                    <li>
+                    <div class="collapsible-header" style={{flexDirection: 'row'}}>
                         <Typography className={classes.title} color="textprimary" gutterBottom variant="h5">
-                            {chapter.title} 
+                            {chapter.title}
                         </Typography>
-                    </div>  
+                        <div id="avatGrp" style={{marginLeft: 'auto'}}>
+                            <AvatarGroups chapter={chapter} />
+                        </div>
+                    </div>
                     <div class="collapsible-body">
 
                 <Card key={indx} className={classes.lessonsCard}>
