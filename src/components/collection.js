@@ -3,6 +3,8 @@ import communication from '../communication/communication';
 import Loader from './loader';
 import Card from '@material-ui/core/Card';
 import CardView from '@material-ui/core/Card';
+import Avatar from '@material-ui/core/Avatar';
+import AvatarGroup from '@material-ui/lab/AvatarGroup';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import {GiTrophy} from 'react-icons/gi';
@@ -151,9 +153,18 @@ function Collection(props) {
                 <TopChapters topChapters={topChapters} chapter={chapter} indx={indx}/>
                 <ul class="collapsible popout">
                     <li>
-                    <div class="collapsible-header"><Typography className={classes.title} color="textprimary" gutterBottom variant="h5">
-                        {chapter.title}
-                    </Typography></div>
+                    <div class="collapsible-header">
+                        <Typography className={classes.title} color="textprimary" gutterBottom variant="h5">
+                            {chapter.title}
+                        </Typography>
+                        <AvatarGroup max={4}>
+                            <Avatar alt="Remy Sharp" src="../../img/trophy.svg" />
+                            <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+                            <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
+                            <Avatar alt="Agnes Walker" src="/static/images/avatar/4.jpg" />
+                            <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" />
+                        </AvatarGroup>
+                    </div>
                     <div class="collapsible-body">
 
                 <Card key={indx} className={classes.lessonsCard}>
