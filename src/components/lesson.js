@@ -91,11 +91,6 @@ function Lesson(props) {
 
     return <React.Fragment>
         <Card className={classes.wrapper} onClick={onClick}>
-        <div className={classes.iconStyle} >
-                <div>
-                        <GiTrophy />
-                </div>
-                </div>
             <CardHeader className={classes.lessonTitle}
             subheader={
                 <Typography gutterBottom variant="inherit" variantMapping="h2" align='center'>
