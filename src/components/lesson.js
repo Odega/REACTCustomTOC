@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import communication from '../communication/communication';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -73,7 +73,8 @@ const useStyles = makeStyles((theme) =>
             display: 'flex',
             right: -10,
             position: 'absolute',
-            transform: 'scale(2)'
+            transform: 'scale(2)',
+
 
         },
     }),
@@ -96,9 +97,12 @@ function Lesson(props) {
     const onClick = React.useCallback(() => {
         communication.requestOpenLesson(props.lesson.id);
     }, [props.lesson]);
-
+    let tried = false;
+    if (props.lesson.time > 1000){
+        tried = true;
+    }
     return <React.Fragment>
-        <Card className={classes.wrapper} onClick={onClick}>
+        <Card className={classes.wrapper} onClick={onClick} style={!tried ? {opacity:'40%'} : {}}>
         <div className={classes.medaljeStyle} >
                         <LessonTrophy props={props} />
                 </div>
@@ -121,15 +125,13 @@ function Lesson(props) {
                     </ScheduleIcon>
                     <Typography variant="subtitle2" gutterBottom style={{marginLeft: 5, lineHeight: 0}} >{lessonTime(props.lesson)}</Typography>
                 </div>
-                <BorderLinearProgress variant='determinate' value={props.lesson.score} style={{lineHeight: 0}} />
+                <BorderLinearProgress value={props.lesson.score} style={{lineHeight: 0}} />
 
 
 
                 
 
             </CardActions>
-
-
         </Card>
     </React.Fragment>
 }

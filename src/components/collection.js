@@ -15,7 +15,7 @@ import Collections from './collections';
 import SideBar from './sideBar';
 import TopChapters from './topChapters';
 import M from 'materialize-css';
-import BorderLinearProgress from './progressBar'
+import BorderLinearProgress from './progressBar';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -159,11 +159,14 @@ function Collection(props) {
                 <ul class="collapsible popout">
                     <li>
                     <div class="collapsible-header" style={{flexDirection: 'row'}}>
+                        
                         <Typography className={classes.title} color="textprimary" gutterBottom variant="h5">
                             {chapter.title}
                         </Typography>
-                        <div id="avatGrp" style={{marginLeft: 'auto'}}>
-                            <AvatarGroups chapter={chapter} />
+                        <div style={{marginLeft: 'auto', display: 'flex', flexDirection: 'row', transform: 'scale(1.8)', marginTop: 10, marginRight: 20}}>
+                            <div id="avatGrp">
+                                <AvatarGroups chapter={chapter} />
+                            </div>
                         </div>
                     </div>
                     <div class="collapsible-body">
