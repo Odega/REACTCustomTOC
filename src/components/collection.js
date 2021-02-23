@@ -118,7 +118,7 @@ function Collection(props) {
         return <Loader />
     }
     //console.log("----------------------------------------------------");
-    //console.log(collectionDetails);
+    console.log(collectionDetails);
     //console.log("----------------------------------------------------");
     let chapters = [];
     const data = {
@@ -163,7 +163,7 @@ function Collection(props) {
                         <Typography className={classes.title} color="textprimary" gutterBottom variant="h5">
                             {chapter.title}
                         </Typography>
-                        <div style={{marginLeft: 'auto', display: 'flex', flexDirection: 'row', transform: 'scale(1.8)', marginTop: 10, marginRight: 20}}>
+                        <div style={{marginLeft: 'auto', display: 'flex', flexDirection: 'row', transform: 'scale(1.6)', marginTop: 10, marginRight: 20}}>
                             <div id="avatGrp">
                                 <AvatarGroups chapter={chapter} />
                             </div>
