@@ -3,6 +3,10 @@ import Card from '@material-ui/core/Card';
 import {GiTrophy} from 'react-icons/gi';
 import Typography from '@material-ui/core/Typography';
 import BorderLinearProgress from './progressBar';
+import { Avatar, CardMedia } from '@material-ui/core';
+import { CircularProgressbarWithChildren } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
+import { CardActions } from '@material-ui/core';
 
 function Trophies({cmdr, classes}) {
     let tGold = 0;
@@ -17,10 +21,10 @@ function Trophies({cmdr, classes}) {
     cmdr.forEach(indx =>
             indx.lessons.forEach(indy =>{
                 //console.log(indy.name + " - " + indy.score)
-                if(indy.score >= 90){
+                if(indy.score >= 80){
                     tGold++;
                 }
-                if(indy.score >= 50 && indy.score < 90){
+                if(indy.score >= 50 && indy.score < 80){
                     tSilver++;
                 }
                 if(indy.score >= 10 && indy.score < 50){
@@ -39,6 +43,21 @@ function Trophies({cmdr, classes}) {
             const date = new Date(Number(ms));
             return `${date.getUTCHours()}h ${date.getMinutes()}m ${date.getSeconds()}s`
         }
+
+        function formatTime(ms) {
+            const timer = new Date(Number(ms));
+            return `${timer.getUTCHours()}h`
+        }
+
+        function formatMinutt(ms) {
+            const minutt = new Date(Number(ms));
+            return ` ${minutt.getMinutes()}m`
+        }
+
+        function formatSekund(ms) {
+            const sekund = new Date(Number(ms));
+            return `${sekund.getSeconds()}s`
+        }
     
     //console.log(tGold + " " + tSilver + " " + tBronze);
     //console.log(totErr);
@@ -50,7 +69,40 @@ function Trophies({cmdr, classes}) {
         <Typography className={classes.title} color="textprimary" gutterBottom variant="h4">
             Tid totalt 
             </Typography>
-            <p>Total tid: {formatDate(totTime)}</p>
+            <CardActions style={{width: 500,}}>
+            <CircularProgressbarWithChildren value={formatTime(totTime)} maxValue={24}>
+        <img
+          style={{color: 'green', width: 50, marginTop: 0 }}
+          src="../../img/sand-clock.svg"
+          alt="timeglass"
+        />
+        <div style={{ fontSize: 16, marginTop: -5 }}>
+          Timer: <strong>{formatTime(totTime)}</strong>
+        </div>
+      </CircularProgressbarWithChildren>
+      <CircularProgressbarWithChildren value={formatMinutt(totTime)} maxValue={60}>
+        {/* Put any JSX content in here that you'd like. It'll be vertically and horizonally centered. */}
+        <img
+          style={{ width: 50, marginTop: 0 }}
+          src="../../img/sand-clock.svg"
+          alt="timeglass"
+        />
+        <div style={{ fontSize: 16, marginTop: -5 }}>
+          Minutt: <strong>{formatMinutt(totTime)}</strong>
+        </div>
+      </CircularProgressbarWithChildren>
+      <CircularProgressbarWithChildren value={formatSekund(totTime)} maxValue={60}>
+        {/* Put any JSX content in here that you'd like. It'll be vertically and horizonally centered. */}
+        <img
+          style={{ width: 50, marginTop: 0 }}
+          src="../../img/sand-clock.svg"
+          alt="timeglass"
+        />
+        <div style={{ fontSize: 16, marginTop: -5 }}>
+          Sekund <strong>{formatSekund(totTime)}</strong>
+        </div>
+      </CircularProgressbarWithChildren>
+      </CardActions>
 
 
 

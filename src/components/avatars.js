@@ -9,10 +9,10 @@ function Avatars(chapter) {
     //console.log(chapter.chapter.chapter.lessons);
 
     chapter.chapter.chapter.lessons.forEach(les => {
-        if(les.score >= 90){
+        if(les.score >= 80){
             gold++;
         }
-        if(les.score >= 50 && les.score < 90){
+        if(les.score >= 50 && les.score < 80){
             silver++;
         }
         if(les.score >= 10 && les.score < 50){
