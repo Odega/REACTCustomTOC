@@ -88,9 +88,15 @@ function Lesson(props) {
     const onClick = React.useCallback(() => {
         communication.requestOpenLesson(props.lesson.id);
     }, [props.lesson]);
-
+    let tried = false;
+    if (props.lesson.time > 1000){
+        tried = true;
+        console.log("TRUUUUU");
+    }else{
+        console.log("Falzzzz");
+    }
     return <React.Fragment>
-        <Card className={classes.wrapper} onClick={onClick}>
+        <Card className={classes.wrapper} onClick={onClick} style={!tried ? {opacity:'40%'} : {}}>
             <CardHeader className={classes.lessonTitle}
             subheader={
                 <Typography gutterBottom variant="inherit" variantMapping="h2" align='center'>
