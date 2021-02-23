@@ -91,9 +91,6 @@ function Lesson(props) {
     let tried = false;
     if (props.lesson.time > 1000){
         tried = true;
-        console.log("TRUUUUU");
-    }else{
-        console.log("Falzzzz");
     }
     return <React.Fragment>
         <Card className={classes.wrapper} onClick={onClick} style={!tried ? {opacity:'40%'} : {}}>
@@ -116,7 +113,7 @@ function Lesson(props) {
                     </ScheduleIcon>
                     <Typography variant="subtitle2" gutterBottom style={{marginLeft: 5, lineHeight: 0}} >{lessonTime(props.lesson)}</Typography>
                 </div>
-                <BorderLinearProgress variant='determinate' value={props.lesson.score} style={{lineHeight: 0}} />
+                <BorderLinearProgress value={props.lesson.score} style={{lineHeight: 0}} />
 
 
 
