@@ -16,7 +16,6 @@ import SideBar from './sideBar';
 import TopChapters from './topChapters';
 import M from 'materialize-css';
 import BorderLinearProgress from './progressBar';
-import ChapterCirc from './chapterCirc';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -119,7 +118,7 @@ function Collection(props) {
         return <Loader />
     }
     //console.log("----------------------------------------------------");
-    //console.log(collectionDetails);
+    console.log(collectionDetails);
     //console.log("----------------------------------------------------");
     let chapters = [];
     const data = {
@@ -164,11 +163,10 @@ function Collection(props) {
                         <Typography className={classes.title} color="textprimary" gutterBottom variant="h5">
                             {chapter.title}
                         </Typography>
-                        <div style={{marginLeft: 'auto', display: 'flex', flexDirection: 'row'}}>
+                        <div style={{marginLeft: 'auto', display: 'flex', flexDirection: 'row', transform: 'scale(1.6)', marginTop: 10, marginRight: 20}}>
                             <div id="avatGrp">
                                 <AvatarGroups chapter={chapter} />
                             </div>
-                            <ChapterCirc chapter={chapter} />
                         </div>
                     </div>
                     <div class="collapsible-body">
