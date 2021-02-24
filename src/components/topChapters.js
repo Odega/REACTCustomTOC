@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
 let isUsed = [];
 let counter = 0;
 
 function TopChapters({topChapters, chapter, indx}) {
     //console.log(chapters.parent == topChapters.id);
-    //console.log("fafafafafafafafafa");
-    //console.log(topChapters);
+    console.log("fafafafafafafafafa");
+    console.log(topChapters);
     if(indx == 0) isUsed = [];
     if (topChapters.find(x => x.id === chapter.parent)){
         let index = topChapters.findIndex(x => x.id === chapter.parent);
@@ -58,8 +58,8 @@ function TopChapters({topChapters, chapter, indx}) {
                 return null
             }
         }
-    }else return null
+    }else {return null}
 
 }
 
-export default TopChapters
+export default TopChapters;

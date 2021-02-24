@@ -195,8 +195,6 @@ function Collection(props) {
         </Card>
             <SideBar className={classes.sideBar} classes={classes} chapters={chapters} cmdr={cmdr}/>
         </div>
-
-       
  {/*       <Button variant="primary" onClick={requestCrossResource.bind(null, config['CROSS_LESSON_DEFINED_ID'], config['CROSS_LESSON_COURSE_ORIGINAL_ID'])}>
             Or see previous course lesson
     </Button> */}
