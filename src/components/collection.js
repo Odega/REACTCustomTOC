@@ -15,6 +15,7 @@ import Collections from './collections';
 import SideBar from './sideBar';
 import TopChapters from './topChapters';
 import M from 'materialize-css';
+import ChapterCirc from './chapterCirc';
 import BorderLinearProgress from './progressBar';
 
 const useStyles = makeStyles(() =>
@@ -81,6 +82,7 @@ const useStyles = makeStyles(() =>
         avatarGroupsStyle: {
             display: 'flex',
             justifyContent: 'right',
+            marginLeft:'10px',
         },
     }),
 );
@@ -163,9 +165,12 @@ function Collection(props) {
                         <Typography className={classes.title} color="textprimary" gutterBottom variant="h5">
                             {chapter.title}
                         </Typography>
-                        <div style={{marginLeft: 'auto', display: 'flex', flexDirection: 'row', transform: 'scale(1.6)', marginTop: 10, marginRight: 20}}>
-                            <div id="avatGrp">
-                                <AvatarGroups chapter={chapter} />
+                        <div style={{marginLeft: 'auto', display: 'flex', flexDirection: 'row'}}>
+                            <div id="avatGrp" className={classes.avatarGroupsStyle}>
+                                <div style={{ transform: 'scale(1.6)', marginTop: 10, marginRight: 20}}>
+                                    <AvatarGroups chapter={chapter} />
+                                </div>
+                                <ChapterCirc chapter={chapter} />
                             </div>
                         </div>
                     </div>

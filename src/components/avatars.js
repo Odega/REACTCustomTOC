@@ -22,14 +22,14 @@ function Avatars(chapter) {
     );
     const trophies = [];
  
-    for (var y = 0; y < gold; y++) {
-        trophies.push(<Avatar alt="Gold" src="../../img/gold.svg" />);
+    for (var o = 0; o < bronze; o++) {
+        trophies.push(<Avatar alt="Bronze" src="../../img/bronze.svg" style={{marginLeft: '-30px'}} />);
     }
     for (var i = 0; i < silver; i++) {
-        trophies.push(<Avatar alt="Silver" src="../../img/silver.svg" />);
+        trophies.push(<Avatar alt="Silver" src="../../img/silver.svg" style={{marginLeft: '-30px'}} />);
     }
-    for (var o = 0; o < bronze; o++) {
-        trophies.push(<Avatar alt="Bronze" src="../../img/bronze.svg" />);
+    for (var y = 0; y < gold; y++) {
+        trophies.push(<Avatar alt="Gold" src="../../img/gold.svg" style={{marginLeft: '-30px'}} />);
     }
 
     return (
