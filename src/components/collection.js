@@ -18,6 +18,7 @@ import M from 'materialize-css';
 import ChapterCirc from './chapterCirc';
 import BorderLinearProgress from './progressBar';
 
+
 const useStyles = makeStyles(() =>
     createStyles({
         lessonsCard: {
@@ -39,20 +40,25 @@ const useStyles = makeStyles(() =>
         },
         title: {
             textAlign: 'center',
-            marginTop: 21
+            marginTop: 21,
+            color: "textprimary",
+
         },
         content : {
             display: 'flex',
+            justifyContent: 'center',
+            // flex: 1 gjør at siden endres avhengig av max bredde
+            paddingLeft: '10%',
+            paddingRight: '10%',
             flexDirection: 'row',
             marginBottom: 20,
-            justifyContent: 'space-between',
             color: '#F5F5F5',
         },
         sideContent : {
+            flex: 2,
             display: 'flex',
             flexDirection: 'column',
             marginBottom: 20,
-            width: '73%',
             marginTop: 20,
             marginLeft: 20,
             marginRight: 20,
@@ -68,8 +74,9 @@ const useStyles = makeStyles(() =>
         },
         sideBar: {
             display: 'flex',
+            flex: 1,
             flexDirection: 'column',
-            width: '27%',
+            height: '100%',
             marginTop: 20,
             marginBottom: 20,
             marginRight: 20,
@@ -79,10 +86,80 @@ const useStyles = makeStyles(() =>
             display: 'flex',
             justifyContent: 'center',
         },
+        avatarGroupsStyle0: {
+            marginLeft: 'auto', 
+            display: 'flex', 
+            flexDirection: 'row'
+
+        },
         avatarGroupsStyle: {
             display: 'flex',
             justifyContent: 'right',
             marginLeft:'10px',
+        },
+        avatarGroupsStyle2: {
+            transform: 'scale(1.6)', 
+            marginTop: 10, 
+            marginRight: 20
+        },
+        trophyView: {
+            display: 'flex',
+            justifyContent: 'center',
+            textAlign: 'center',
+
+
+        },
+        trophyViewText: {
+            display: 'flex',
+            justifyContent: 'center',
+            textAlign: 'center',
+            verticalAlign: 'middle',
+
+
+        },
+        trophyStyle: {
+            display: 'flex',
+            justifyContent: 'center',
+            fontSize: '105px',  
+            marginTop: 10, 
+            
+        },
+        trophyText: {
+            display: 'flex',
+            justifyContent: 'center',
+            fontSize: '40px',
+            verticalAlign: 'middle',
+            position: 'absolute', 
+            marginTop: 15
+
+
+        },
+        trophyWrapper: {
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            textAlign: 'center'
+        },
+        medaljeBarStyle: {
+            display: 'flex',
+            flex: 1,
+            verticalAlign: 'middle',
+            flexDirection: 'row',
+            margin: 5
+        },
+        medaljeWrapper: {
+            display: 'flex',
+            flexWrap: 'wrap',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            marginLeft: 10,
+            marginRight: 10,
+            textAlign: 'center',
+            marginBottom: 20,
+            marginTop: 20
+
         },
     }),
 );
@@ -162,12 +239,12 @@ function Collection(props) {
                     <li>
                     <div class="collapsible-header" style={{flexDirection: 'row'}}>
                         
-                        <Typography className={classes.title} color="textprimary" gutterBottom variant="h5">
+                        <Typography className={classes.title} >
                             {chapter.title}
                         </Typography>
-                        <div style={{marginLeft: 'auto', display: 'flex', flexDirection: 'row'}}>
+                        <div className={classes.avatarGroupsStyle0}>
                             <div id="avatGrp" className={classes.avatarGroupsStyle}>
-                                <div style={{ transform: 'scale(1.6)', marginTop: 10, marginRight: 20}}>
+                                <div className={classes.avatarGroupsStyle2}>
                                     <AvatarGroups chapter={chapter} />
                                 </div>
                                 <ChapterCirc chapter={chapter} />

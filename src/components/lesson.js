@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) =>
         },
         media: {
             justifyContent: 'center',
+            width: 130, height: 100, alignContent: 'center', borderRadius: '10%' 
 
         },
         cardImgCenter: {
@@ -69,6 +70,13 @@ const useStyles = makeStyles((theme) =>
             height: 100
 
         },
+        lessonNameStyle: {
+            variant: "inherit", 
+            variantMapping: "h2", 
+            align: 'center'
+
+        },
+
         medaljeStyle: {
             display: 'flex',
             right: -10,
@@ -77,6 +85,11 @@ const useStyles = makeStyles((theme) =>
 
 
         },
+        tidStyle: {
+            variant: "subtitle2",
+            marginLeft: 5, 
+            lineHeight: 0
+        }
     }),
 );
 function lessonTime(lesson) {
@@ -108,14 +121,13 @@ function Lesson(props) {
                 </div>
             <CardHeader className={classes.lessonTitle}
             subheader={
-                <Typography gutterBottom variant="inherit" variantMapping="h2" align='center'>
+                <Typography gutterBottom className={classes.lessonNameStyle}>
                    {props.lesson.name}
                 </Typography>}
             ></CardHeader>
             <div className={classes.cardImgCenter}>
                 <CardMedia
                     className={classes.media}
-                    style={{ width: 130, height: 100, alignContent: 'center', borderRadius: '10%' }}
                     image={`${config['APPLICATION_BASE_URL']}${props.lesson.icon}`}
                 /></div>
             <CardActions className={classes.wrapper}>
@@ -123,9 +135,9 @@ function Lesson(props) {
                     <ScheduleIcon>
                         <ScheduleIcon />
                     </ScheduleIcon>
-                    <Typography variant="subtitle2" gutterBottom style={{marginLeft: 5, lineHeight: 0}} >{lessonTime(props.lesson)}</Typography>
+                    <Typography className={classes.tidStyle} >{lessonTime(props.lesson)}</Typography>
                 </div>
-                <BorderLinearProgress value={props.lesson.score} style={{lineHeight: 0}} />
+                <BorderLinearProgress value={props.lesson.score} />
 
 
 
