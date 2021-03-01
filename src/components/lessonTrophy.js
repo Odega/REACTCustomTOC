@@ -4,7 +4,7 @@ import Avatar from '@material-ui/core/Avatar';
 function LessonTrophy(props) {
 
     //console.log("ææææææææææææææææææææææææææææææææææææææææææææææææææææææææææææææææ");
-    console.log(props);
+    //console.log(props);
     
         if(props.props.lesson.score >= 80){
             return (

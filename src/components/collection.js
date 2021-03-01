@@ -17,152 +17,49 @@ import TopChapters from './topChapters';
 import M from 'materialize-css';
 import ChapterCirc from './chapterCirc';
 import BorderLinearProgress from './progressBar';
+import UseTabletStyles from '../styles/stylesTablet'
+import UseMobileStyles from '../styles/stylesMobile';
+import UseStyles from '../styles/styles';
+import MyMediaQuery from './deviceDetect';
+import {
+    isMobile,
+    isTablet
+  } from "react-device-detect";
 
+const Devicedetect = () => {
+    const [width, setWidth] = React.useState(window.innerWidth);
 
-const useStyles = makeStyles(() =>
-    createStyles({
-        lessonsCard: {
-            justifyContent: 'flex-end',
-            marginBottom: 20,
+    React.useEffect(() => {
+        console.log('useEffect')
+        const handleWindowResize = () => setWidth(window.innerWidth)
+        window.addEventListener("resize", handleWindowResize);
+    
+        // Return a function from the effect that removes the event listener
+        return () => window.removeEventListener("resize", handleWindowResize);
+      }, []);
 
-        },
-        lessonsGroup: {
-            display: 'flex',
-            flexWrap: 'wrap',
-            
-        },
-        row: {
-            display: 'flex',
-            justifyContent: 'center',
-            flexDirection: 'column',
-            margin: 21,
+    console.log(width);
+    if (width < 550) {
+        console.log('mobile');
+        return (
+            UseMobileStyles()
+        )
 
-        },
-        title: {
-            textAlign: 'center',
-            marginTop: 21,
-            color: "textprimary",
+    };
+    if (width > 550 && width <= 1224) {
+        console.log('tablet');
+        return (
+            UseTabletStyles()
+        )
+    }
+    else {
+        console.log('vanlig');
+        return (
+            UseStyles()
+        )
+    };
+}
 
-        },
-        content : {
-            display: 'flex',
-            justifyContent: 'center',
-            // flex: 1 gjør at siden endres avhengig av max bredde
-            paddingLeft: '10%',
-            paddingRight: '10%',
-            flexDirection: 'row',
-            marginBottom: 20,
-            color: '#F5F5F5',
-        },
-        sideContent : {
-            flex: 2,
-            display: 'flex',
-            flexDirection: 'column',
-            marginBottom: 20,
-            marginTop: 20,
-            marginLeft: 20,
-            marginRight: 20,
-            // backgroundColor: '#F5F5F5',
-            backgroundColor: 'white',
-            shadowColor: 'rgba(0,0,0, 0.0)',
-            shadowOffset: { height: 0, width: 0 },
-            shadowOpacity: 0, //default is 1
-            shadowRadius: 0,
-            borderWidth: 0,
-            elevation: 0,
-            border: 0,
-        },
-        sideBar: {
-            display: 'flex',
-            flex: 1,
-            flexDirection: 'column',
-            height: '100%',
-            marginTop: 20,
-            marginBottom: 20,
-            marginRight: 20,
-            marginLeft: 20,
-        },
-        iconStyle: {
-            display: 'flex',
-            justifyContent: 'center',
-        },
-        avatarGroupsStyle0: {
-            marginLeft: 'auto', 
-            display: 'flex', 
-            flexDirection: 'row'
-
-        },
-        avatarGroupsStyle: {
-            display: 'flex',
-            justifyContent: 'right',
-            marginLeft:'10px',
-        },
-        avatarGroupsStyle2: {
-            transform: 'scale(1.6)', 
-            marginTop: 10, 
-            marginRight: 20
-        },
-        trophyView: {
-            display: 'flex',
-            justifyContent: 'center',
-            textAlign: 'center',
-
-
-        },
-        trophyViewText: {
-            display: 'flex',
-            justifyContent: 'center',
-            textAlign: 'center',
-            verticalAlign: 'middle',
-
-
-        },
-        trophyStyle: {
-            display: 'flex',
-            justifyContent: 'center',
-            fontSize: '105px',  
-            marginTop: 10, 
-            
-        },
-        trophyText: {
-            display: 'flex',
-            justifyContent: 'center',
-            fontSize: '40px',
-            verticalAlign: 'middle',
-            position: 'absolute', 
-            marginTop: 15
-
-
-        },
-        trophyWrapper: {
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            textAlign: 'center'
-        },
-        medaljeBarStyle: {
-            display: 'flex',
-            flex: 1,
-            verticalAlign: 'middle',
-            flexDirection: 'row',
-            margin: 5
-        },
-        medaljeWrapper: {
-            display: 'flex',
-            flexWrap: 'wrap',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            marginLeft: 10,
-            marginRight: 10,
-            textAlign: 'center',
-            marginBottom: 20,
-            marginTop: 20
-
-        },
-    }),
-);
 
 function makeChapter(lessons, chapters, chapt) {
     let toReturn = [];
@@ -184,7 +81,7 @@ function makeChapter(lessons, chapters, chapt) {
 
 let cmdr;
 function Collection(props) {
-    const classes = useStyles();
+    const classes =Devicedetect();
     const [collectionDetails, setCollectionDetails] = React.useState(null);
     React.useEffect(() => {
         communication.requestCollectionData(props.collection.id).then(function (data) {

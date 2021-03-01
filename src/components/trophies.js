@@ -33,7 +33,7 @@ function Trophies({cmdr, classes}) {
                 if(indy.score >= 1 && indy.score < 50){
                     tBronze++;
                 }
-                count += indy.lessons;
+                count += indy.score;
                 totErr += indy.errors;
                 //console.log(formatDate(indy.time));
                 //console.log(totTime + " + " + indy.time);
@@ -77,61 +77,6 @@ function Trophies({cmdr, classes}) {
     //console.log(formatDate(totTime));
     return (
     <React.Fragment>
-        <div style={{margin:20}}>
-        <Card className={classes.sideWrapper}>
-        <Typography className={classes.title} color="textprimary" gutterBottom variant="h4">
-            Tid totalt 
-            </Typography>
-            <CardActions style={{width: 470, justifyContent: 'center'}}>
-            <CircularProgressbarWithChildren value={formatDag(totTime)} maxValue={365} styles={buildStyles({pathColor: 'green'})}>
-        {/* Put any JSX content in here that you'd like. It'll be vertically and horizonally centered. */}
-        <img
-          style={{ width: 50, marginTop: 0 }}
-          src="../../img/sand-clock.svg"
-          alt="timeglass"
-        />
-        <div style={{ fontSize: 16, marginTop: -5 }}>
-          Dager: <strong>{formatDag(totTime)}</strong>
-        </div>
-      </CircularProgressbarWithChildren>
-            <CircularProgressbarWithChildren value={formatTime(totTime)} maxValue={24} styles={buildStyles({pathColor: 'green'})}>
-        <img
-          style={{color: 'green', width: 50, marginTop: 0 }}
-          src="../../img/sand-clock.svg"
-          alt="timeglass"
-        />
-        <div style={{ fontSize: 16, marginTop: -5 }}>
-          Timer: <strong>{formatTime(totTime)} h</strong>
-        </div>
-      </CircularProgressbarWithChildren>
-      <CircularProgressbarWithChildren value={formatMinutt(totTime)} maxValue={60} styles={buildStyles({pathColor: 'green'})}>
-        {/* Put any JSX content in here that you'd like. It'll be vertically and horizonally centered. */}
-        <img
-          style={{ width: 50, marginTop: 0 }}
-          src="../../img/sand-clock.svg"
-          alt="timeglass"
-        />
-        <div style={{ fontSize: 16, marginTop: -5 }}>
-          Minutt: <strong>{formatMinutt(totTime)} m</strong>
-        </div>
-      </CircularProgressbarWithChildren>
-      </CardActions>
-
-
-
-        </Card>
-        </div>
-        <div style={{margin: 20}}>
-            <Card className={classes.wrapper}>
-                <Typography className={classes.title} color="textprimary" gutterBottom variant="h4">
-                 Total progresjon
-                </Typography>
-                <BorderLinearProgress variant='determinate' value={totScr} style={{color: '#039be5', lineHeight: 0, marginLeft:20, marginRight: 20, marginBottom: 20, marginTop: 20}}/>
-
-
-
-        </Card>
-        </div>
         <div style={{margin:20}}>
 
             <Card className={classes.trophyWrapper}>
