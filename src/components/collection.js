@@ -17,75 +17,49 @@ import TopChapters from './topChapters';
 import M from 'materialize-css';
 import ChapterCirc from './chapterCirc';
 import BorderLinearProgress from './progressBar';
+import UseTabletStyles from '../styles/stylesTablet'
+import UseMobileStyles from '../styles/stylesMobile';
+import UseStyles from '../styles/styles';
+import MyMediaQuery from './deviceDetect';
+import {
+    isMobile,
+    isTablet
+  } from "react-device-detect";
 
-const useStyles = makeStyles(() =>
-    createStyles({
-        lessonsCard: {
-            justifyContent: 'flex-end',
-            marginBottom: 20,
+const Devicedetect = () => {
+    const [width, setWidth] = React.useState(window.innerWidth);
 
-        },
-        lessonsGroup: {
-            display: 'flex',
-            flexWrap: 'wrap',
-            
-        },
-        row: {
-            display: 'flex',
-            justifyContent: 'center',
-            flexDirection: 'column',
-            margin: 21,
+    React.useEffect(() => {
+        console.log('useEffect')
+        const handleWindowResize = () => setWidth(window.innerWidth)
+        window.addEventListener("resize", handleWindowResize);
+    
+        // Return a function from the effect that removes the event listener
+        return () => window.removeEventListener("resize", handleWindowResize);
+      }, []);
 
-        },
-        title: {
-            textAlign: 'center',
-            marginTop: 21
-        },
-        content : {
-            display: 'flex',
-            flexDirection: 'row',
-            marginBottom: 20,
-            justifyContent: 'space-between',
-            color: '#F5F5F5',
-        },
-        sideContent : {
-            display: 'flex',
-            flexDirection: 'column',
-            marginBottom: 20,
-            width: '73%',
-            marginTop: 20,
-            marginLeft: 20,
-            marginRight: 20,
-            // backgroundColor: '#F5F5F5',
-            backgroundColor: 'white',
-            shadowColor: 'rgba(0,0,0, 0.0)',
-            shadowOffset: { height: 0, width: 0 },
-            shadowOpacity: 0, //default is 1
-            shadowRadius: 0,
-            borderWidth: 0,
-            elevation: 0,
-            border: 0,
-        },
-        sideBar: {
-            display: 'flex',
-            flexDirection: 'column',
-            width: '27%',
-            marginTop: 20,
-            marginBottom: 20,
-            marginRight: 20,
-            marginLeft: 20,
-        },
-        iconStyle: {
-            display: 'flex',
-            justifyContent: 'center',
-        },
-        avatarGroupsStyle: {
-            display: 'flex',
-            justifyContent: 'right',
-            marginLeft:'10px',
-        },
-    }),
-);
+    console.log(width);
+    if (width < 550) {
+        console.log('mobile');
+        return (
+            UseMobileStyles()
+        )
+
+    };
+    if (width > 550 && width <= 1224) {
+        console.log('tablet');
+        return (
+            UseTabletStyles()
+        )
+    }
+    else {
+        console.log('vanlig');
+        return (
+            UseStyles()
+        )
+    };
+}
+
 
 function makeChapter(lessons, chapters, chapt) {
     let toReturn = [];
@@ -107,7 +81,7 @@ function makeChapter(lessons, chapters, chapt) {
 
 let cmdr;
 function Collection(props) {
-    const classes = useStyles();
+    const classes =Devicedetect();
     const [collectionDetails, setCollectionDetails] = React.useState(null);
     React.useEffect(() => {
         communication.requestCollectionData(props.collection.id).then(function (data) {
@@ -162,12 +136,12 @@ function Collection(props) {
                     <li>
                     <div class="collapsible-header" style={{flexDirection: 'row'}}>
                         
-                        <Typography className={classes.title} color="textprimary" gutterBottom variant="h5">
+                        <Typography className={classes.title} >
                             {chapter.title}
                         </Typography>
-                        <div style={{marginLeft: 'auto', display: 'flex', flexDirection: 'row'}}>
+                        <div className={classes.avatarGroupsStyle0}>
                             <div id="avatGrp" className={classes.avatarGroupsStyle}>
-                                <div style={{ transform: 'scale(1.6)', marginTop: 10, marginRight: 20}}>
+                                <div className={classes.avatarGroupsStyle2}>
                                     <AvatarGroups chapter={chapter} />
                                 </div>
                                 <ChapterCirc chapter={chapter} />

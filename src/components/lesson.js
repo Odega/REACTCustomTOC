@@ -15,70 +15,34 @@ import { CardHeader, Card, CardActionArea, CardMedia, CardActions, Divider } fro
 import { icons } from 'react-icons/lib';
 import BorderLinearProgress from './progressBar'
 import LessonTrophy from './lessonTrophy'
+import UseTabletStyles from '../styles/stylesTablet'
+import UseMobileStyles from '../styles/stylesMobile';
+import UseStyles from '../styles/styles';
 
-const useStyles = makeStyles((theme) =>
-    createStyles({
-        wrapper: {
-            display: 'block',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            position: 'relative',
-            height: '20rem',
-            width: '16rem',
-            textAlign: 'center',
-            cursor: 'pointer',
-            overflow: 'visible'
-        },
-        buttonProgress: {
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            marginTop: -50,
-            marginLeft: -50
-        },
-        media: {
-            justifyContent: 'center',
+function devicedetect () {
+    console.log(window.innerWidth);
+    if (window.innerWidth > 0 && window.innerWidth <= 360) {
+        console.log('mobile');
+        return (
+            UseMobileStyles()
+        )
 
-        },
-        cardImgCenter: {
-            display: 'flex',
-            justifyContent: 'center',
-            width: '16rem',
-            maxWidth: '100rem',
-        },
-        styleFlex: {
-            display: 'flex',
-            justifyContent: 'center'
-        },
-        iconStyle: {
-            display: 'flex',
-            color: 'white',
-            right: -8,
-            top: -5,
-            position: 'absolute',
-            borderRadius: '60%',
-            fontSize: '25px',
-            lineHeight: 0,
-            backgroundColor: 'grey',
-            border: '3px solid grey'
-            
-        },
-        lessonTitle: {
-            fontWeight: 'bold',
-            maxWidth: 400,
-            height: 100
+    };
+    if (window.innerWidth > 361 && window.innerWidth <= 1224) {
+        console.log('tablet');
+        return (
+            UseTabletStyles()
+        )
+    }
+    else {
+        console.log('vanlig');
+        return (
+            UseStyles()
+        )
+    };
 
-        },
-        medaljeStyle: {
-            display: 'flex',
-            right: -10,
-            position: 'absolute',
-            transform: 'scale(2)',
+}
 
-
-        },
-    }),
-);
 function lessonTime(lesson) {
     function formatDate(ms) {
         const date = new Date(Number(ms))
@@ -93,7 +57,7 @@ function lessonTime(lesson) {
 }
 
 function Lesson(props) {
-    const classes = useStyles();
+    const classes = devicedetect();
     const onClick = React.useCallback(() => {
         communication.requestOpenLesson(props.lesson.id);
     }, [props.lesson]);
@@ -108,14 +72,13 @@ function Lesson(props) {
                 </div>
             <CardHeader className={classes.lessonTitle}
             subheader={
-                <Typography gutterBottom variant="inherit" variantMapping="h2" align='center'>
+                <Typography gutterBottom className={classes.lessonNameStyle}>
                    {props.lesson.name}
                 </Typography>}
             ></CardHeader>
             <div className={classes.cardImgCenter}>
                 <CardMedia
                     className={classes.media}
-                    style={{ width: 130, height: 100, alignContent: 'center', borderRadius: '10%' }}
                     image={`${config['APPLICATION_BASE_URL']}${props.lesson.icon}`}
                 /></div>
             <CardActions className={classes.wrapper}>
@@ -123,14 +86,9 @@ function Lesson(props) {
                     <ScheduleIcon>
                         <ScheduleIcon />
                     </ScheduleIcon>
-                    <Typography variant="subtitle2" gutterBottom style={{marginLeft: 5, lineHeight: 0}} >{lessonTime(props.lesson)}</Typography>
+                    <Typography className={classes.tidStyle} >{lessonTime(props.lesson)}</Typography>
                 </div>
-                <BorderLinearProgress value={props.lesson.score} style={{lineHeight: 0}} />
-
-
-
-                
-
+                <BorderLinearProgress value={props.lesson.score} />
             </CardActions>
         </Card>
     </React.Fragment>

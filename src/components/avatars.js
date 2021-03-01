@@ -15,7 +15,7 @@ function Avatars(chapter) {
         if(les.score >= 50 && les.score < 80){
             silver++;
         }
-        if(les.score >= 10 && les.score < 50){
+        if(les.score >= 1 && les.score < 50){
             bronze++;
         } 
     }
