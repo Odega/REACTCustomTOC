@@ -20,6 +20,16 @@ createStyles({
         flexWrap: 'wrap',
         
     },
+    toptopChapHeader: {
+        variantMapping: 'h4',
+        marginLeft: 5,
+        fontSize: 30
+    },
+    topChapHeader: {
+        variantMapping: 'h5',
+        marginLeft: 7,
+        fontSize: 20
+    },
     row: {
         display: 'flex',
         justifyContent: 'center',

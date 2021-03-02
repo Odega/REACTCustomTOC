@@ -1,4 +1,7 @@
+import classes from './collection'
 import React from 'react';
+import { Typography } from '@material-ui/core';
+
 
 let isUsed = [];
 let counter = 0;
@@ -20,9 +23,10 @@ function TopChapters({topChapters, chapter, indx}) {
                 isUsed.push(topChap);
                 return (
                     <React.Fragment>
-                    <h4>
+                        <div className={classes.toptopChapHeader}>
                         {topChap}
-                    </h4>
+                        </div>
+                        
                     </React.Fragment>
                 )
             }else{
@@ -37,21 +41,21 @@ function TopChapters({topChapters, chapter, indx}) {
                 isUsed.push(topTopChap);
                 return (
                     <React.Fragment>
-                    <h4>
+                        <div className={classes.toptopChapHeader}>
                         {topTopChap}
-                    </h4>
-                    <h5>
+                        </div>
+                        <div className={classes.topChapHeader}>
                         {topChap}
-                    </h5>
+                        </div>
                     </React.Fragment>
                 )
             }else if(!isUsed.includes(topChap) && isUsed.includes(topTopChap)){
                 isUsed.push(topChap);
                 return(
-                    <React.Fragment>
-                        <h5>
+                    <React.Fragment >
+                        <div className={classes.toptopChapHeader}>
                             {topChap}
-                        </h5>
+                            </div>
                     </React.Fragment>  
                 )
             }else if(isUsed.includes(topChap) && isUsed.includes(topTopChap)){

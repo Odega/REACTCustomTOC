@@ -21,14 +21,14 @@ import UseStyles from '../styles/styles';
 
 function devicedetect () {
     console.log(window.innerWidth);
-    if (window.innerWidth > 0 && window.innerWidth <= 360) {
+    if (window.innerWidth > 0 && window.innerWidth <= 692) {
         console.log('mobile');
         return (
             UseMobileStyles()
         )
 
     };
-    if (window.innerWidth > 361 && window.innerWidth <= 1224) {
+    if (window.innerWidth > 692 && window.innerWidth <= 1224) {
         console.log('tablet');
         return (
             UseTabletStyles()

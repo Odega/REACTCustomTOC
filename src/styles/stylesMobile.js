@@ -13,17 +13,28 @@ createStyles({
     lessonsCard: {
         justifyContent: 'center',
         marginBottom: 20,
+
+        
        
 
     },
-    h1: {
-        fontSize: '16'
+    toptopChapHeader: {
+        fontSize: '16',
+        fontWeight: 'bold',
+        variantMapping: 'h4',
+        marginLeft: 5,
+    },
+    topChapHeader: {
+        fontSize: '14',
+        marginLeft: 8
     },
     lessonsGroup: {
         display: 'flex',
-        flexWrap: 'wrap',
+        flexWrap: 'nowrap',
+        flexDirection: 'column',
         justifyContent: 'center',
-        height: '20%'
+        height: '20%',
+
         
     },
     row: {
@@ -37,7 +48,8 @@ createStyles({
         textAlign: 'center',
         marginTop: 21,
         color: "textprimary",
-        fontSize: '12'
+        variantMapping: 'h5',
+        fontSize: '12px',
 
     },
     content : {
@@ -45,30 +57,20 @@ createStyles({
         width: '100%',
         justifyContent: 'center',
         // flex: 1 gjør at siden endres avhengig av max bredde
-        flexDirection: 'column',
+        flexDirection: 'column-reverse',
         marginBottom: 20,
         color: '#F5F5F5',
     },
     sideContent : {
         display: 'flex',
         flexDirection: 'column',
-        marginBottom: 20,
-        marginTop: 20,
-        marginLeft: 20,
-        marginRight: 20,
+        justifyContent: 'center',
+
         // backgroundColor: '#F5F5F5',
-        backgroundColor: 'white',
-        shadowColor: 'rgba(0,0,0, 0.0)',
-        shadowOffset: { height: 0, width: 0 },
-        shadowOpacity: 0, //default is 1
-        shadowRadius: 0,
-        borderWidth: 0,
-        elevation: 0,
-        border: 0,
     },
     sideBar: {
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'row',
         height: '100%',
         marginTop: 20,
         marginBottom: 20,
@@ -169,20 +171,15 @@ createStyles({
     wrapper: {
         display: 'block',
         marginLeft: 'auto',
-        marginRight: 'auto',
+        marginRight: 20,
         position: 'relative',
-        height: '20rem',
+        height: '18rem',
         width: '16rem',
         textAlign: 'center',
         cursor: 'pointer',
-        overflow: 'visible'
-    },
-    buttonProgress: {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        marginTop: -50,
-        marginLeft: -50
+        overflow: 'visible',
+        transform: 'scale(0.8)',
+        justifyContent: 'center'
     },
     media: {
         justifyContent: 'center',
@@ -193,7 +190,7 @@ createStyles({
         display: 'flex',
         justifyContent: 'center',
         width: '16rem',
-        maxWidth: '100rem',
+        maxWidth: '50rem',
     },
     styleFlex: {
         display: 'flex',
@@ -214,15 +211,14 @@ createStyles({
     },
     lessonTitle: {
         fontWeight: 'bold',
-        maxWidth: 400,
-        height: 100,
-        fontSize: '10px',
 
     },
     lessonNameStyle: {
+        display: 'flex',
         variant: "inherit", 
-        variantMapping: "h3", 
-        align: 'center'
+        variantMapping: "h5", 
+        align: 'center',
+        fontSize: '10px'
 
     },
 
