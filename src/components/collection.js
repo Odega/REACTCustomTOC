@@ -30,23 +30,13 @@ const Devicedetect = () => {
     const [width, setWidth] = React.useState(window.innerWidth);
 
     React.useEffect(() => {
-        console.log('useEffect')
         const handleWindowResize = () => setWidth(window.innerWidth)
         window.addEventListener("resize", handleWindowResize);
     
         // Return a function from the effect that removes the event listener
         return () => window.removeEventListener("resize", handleWindowResize);
       }, []);
-
-    console.log(width);
-    if (width < 550) {
-        console.log('mobile');
-        return (
-            UseMobileStyles()
-        )
-
-    };
-    if (width > 550 && width <= 1224) {
+    if (width <= 1224) {
         console.log('tablet');
         return (
             UseTabletStyles()
@@ -131,7 +121,7 @@ function Collection(props) {
             
             return (
                 <>
-                <TopChapters topChapters={topChapters} chapter={chapter} indx={indx}/>
+                <TopChapters topChapters={topChapters} chapter={chapter} indx={indx} />
                 <ul class="collapsible popout">
                     <li>
                     <div class="collapsible-header" style={{flexDirection: 'row'}}>

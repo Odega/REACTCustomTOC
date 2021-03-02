@@ -10,7 +10,6 @@ class MyMediaQuery extends Component {
     render() {
         return (
             <Fragment>
-                
                 <MediaQuery minDeviceWidth={1224}>
                     {UseStyles()}
                 </MediaQuery>
@@ -19,7 +18,6 @@ class MyMediaQuery extends Component {
                 </MediaQuery>
                 <MediaQuery maxDeviceWidth={530}>
                     {UseMobileStyles()}
-                    console.log('mobil')
                     
                 </MediaQuery>
             </Fragment>

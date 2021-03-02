@@ -11,7 +11,7 @@ import {
   const UseTabletStyles = makeStyles(() =>
 createStyles({
     lessonsCard: {
-        justifyContent: 'flex-end',
+        justifyContent: 'center',
         marginBottom: 20,
 
     },
@@ -20,6 +20,16 @@ createStyles({
         flexWrap: 'wrap',
         justifyContent: 'center'
         
+    },
+    toptopChapHeader: {
+        fontSize: '16',
+        fontWeight: 'bold',
+        variantMapping: 'h4',
+        marginLeft: 5,
+    },
+    topChapHeader: {
+        fontSize: '14',
+        marginLeft: 8
     },
     row: {
         display: 'flex',
@@ -39,7 +49,7 @@ createStyles({
         justifyContent: 'center',
         width: '100%',
         // flex: 1 gjør at siden endres avhengig av max bredde
-        flexDirection: 'column',
+        flexDirection: 'column-reverse',
         marginBottom: 20,
         color: '#F5F5F5',
     },
@@ -63,9 +73,9 @@ createStyles({
     sideBar: {
         display: 'flex',
         flex: 1,
-        flexDirection: 'column',
+        flexDirection: 'row',
         height: '100%',
-        width: '100%',
+        justifyContent: 'center',
         marginTop: 20,
         marginBottom: 20,
         marginRight: 20,
@@ -97,6 +107,7 @@ createStyles({
         textAlign: 'center',
 
 
+
     },
     trophyViewText: {
         display: 'flex',
@@ -105,12 +116,14 @@ createStyles({
         verticalAlign: 'middle',
 
 
+
     },
     trophyStyle: {
         display: 'flex',
         justifyContent: 'center',
         fontSize: '105px',  
         marginTop: 10, 
+
         
     },
     trophyText: {
@@ -133,21 +146,23 @@ createStyles({
     },
     medaljeBarStyle: {
         display: 'flex',
-        flex: 1,
         verticalAlign: 'middle',
         flexDirection: 'row',
-        margin: 5
+        margin: 5,
+        width: '100%',
+
     },
     medaljeWrapper: {
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'column',
         justifyContent: 'center',
-        marginLeft: 10,
-        marginRight: 10,
+        marginLeft: 'auto',
+        marginRight: 'auto',
         textAlign: 'center',
         marginBottom: 20,
-        marginTop: 20
+        marginTop: 20,
+        width: '100%'
 
     },
     
