@@ -37,13 +37,13 @@ const Devicedetect = () => {
         return () => window.removeEventListener("resize", handleWindowResize);
       }, []);
     if (width <= 1224) {
-        console.log('tablet');
+        //console.log('tablet');
         return (
             UseTabletStyles()
         )
     }
     else {
-        console.log('vanlig');
+        //console.log('vanlig');
         return (
             UseStyles()
         )
@@ -84,7 +84,7 @@ function Collection(props) {
         return <Loader />
     }
     //console.log("----------------------------------------------------");
-    console.log(collectionDetails);
+    //console.log(collectionDetails);
     //console.log("----------------------------------------------------");
     let chapters = [];
     const data = {
