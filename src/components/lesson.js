@@ -20,22 +20,22 @@ import UseMobileStyles from '../styles/stylesMobile';
 import UseStyles from '../styles/styles';
 
 function devicedetect () {
-    console.log(window.innerWidth);
+    //console.log(window.innerWidth);
     if (window.innerWidth > 0 && window.innerWidth <= 692) {
-        console.log('mobile');
+        //console.log('mobile');
         return (
             UseMobileStyles()
         )
 
     };
     if (window.innerWidth > 692 && window.innerWidth <= 1224) {
-        console.log('tablet');
+        //console.log('tablet');
         return (
             UseTabletStyles()
         )
     }
     else {
-        console.log('vanlig');
+        //console.log('vanlig');
         return (
             UseStyles()
         )
@@ -50,9 +50,9 @@ function lessonTime(lesson) {
     }
 
     return (
-        <p>
+        <>
             {formatDate(lesson.time)}
-        </p>
+        </>
     )
 }
 
