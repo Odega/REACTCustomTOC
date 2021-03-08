@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import communication from '../communication/communication';
 import Loader from './loader';
 import Card from '@material-ui/core/Card';
@@ -21,10 +21,11 @@ import UseTabletStyles from '../styles/stylesTablet'
 import UseMobileStyles from '../styles/stylesMobile';
 import UseStyles from '../styles/styles';
 import MyMediaQuery from './deviceDetect';
-import {
-    isMobile,
-    isTablet
-  } from "react-device-detect";
+import IconButton from '@material-ui/core/IconButton';
+import AvatarGroupsM from './avatarGrMobile';
+import Popup from './popupBtn';
+import AvatarsM from './avatarsMobile';
+import Avatar from '@material-ui/core/Avatar';
 
 const Devicedetect = () => {
     const [width, setWidth] = React.useState(window.innerWidth);
@@ -37,18 +38,24 @@ const Devicedetect = () => {
         return () => window.removeEventListener("resize", handleWindowResize);
       }, []);
     if (width <= 1224) {
-        console.log('tablet');
+        //console.log('tablet');
         return (
             UseTabletStyles()
         )
     }
+    else if (width <=500) {
+        return (
+            UseMobileStyles()
+        )
+    }
     else {
-        console.log('vanlig');
+        //console.log('vanlig');
         return (
             UseStyles()
         )
     };
 }
+
 
 
 function makeChapter(lessons, chapters, chapt) {
@@ -73,6 +80,9 @@ let cmdr;
 function Collection(props) {
     const classes =Devicedetect();
     const [collectionDetails, setCollectionDetails] = React.useState(null);
+    const [isOpen, setIsOpen] = useState(false);
+   
+
     React.useEffect(() => {
         communication.requestCollectionData(props.collection.id).then(function (data) {
             setCollectionDetails(data.data);
@@ -112,60 +122,129 @@ function Collection(props) {
     const requestCrossResource = function (definedID, originalId) {
         communication.requestCrossResource(collectionDetails.lessons[0].id, definedID, originalId);
     }
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
+      }
 
-    return <div className={classes.content} >
-        <Card className={classes.sideContent}>
-            
-        {chapters.map((chapter, indx) => {
-            //console.log(JSON.stringify({chapter}) + " - " + indx);
-            
-            return (
-                <>
-                <TopChapters topChapters={topChapters} chapter={chapter} indx={indx} />
-                <ul class="collapsible popout">
-                    <li>
-                    <div class="collapsible-header" style={{flexDirection: 'row'}}>
-                        
-                        <Typography className={classes.title} >
-                            {chapter.title}
-                        </Typography>
-                        <div className={classes.avatarGroupsStyle0}>
-                            <div id="avatGrp" className={classes.avatarGroupsStyle}>
-                                <div className={classes.avatarGroupsStyle2}>
-                                    <AvatarGroups chapter={chapter} />
+
+        if (window.innerWidth <= 1224) {
+            return <div className={classes.content} >
+            <Card className={classes.sideContent}>
+                
+            {chapters.map((chapter, indx) => {
+                //console.log(JSON.stringify({chapter}) + " - " + indx);
+                
+                return (
+                    <>
+                    <TopChapters topChapters={topChapters} chapter={chapter} indx={indx} classes={classes} />
+                    <ul class="collapsible popout">
+                        <li>
+                        <div class="collapsible-header">
+                            
+                            <Typography className={classes.titleModul}>
+                                {chapter.title}
+                            </Typography>
+                            <div className={classes.avatarGroupsStyle0}>
+                                <div id="avatGrp" className={classes.avatarGroupsStyle}>
+                                    <div className={classes.avatarGroupsStyle2}>
+                                        <AvatarGroupsM chapter={chapter} />
+                                    </div>
+                                    <ChapterCirc chapter={chapter} style={{margin: 'auto', justifycontent: 'center'}}/>
                                 </div>
-                                <ChapterCirc chapter={chapter} />
                             </div>
                         </div>
+                        <div class="collapsible-body">
+    
+                    <Card key={indx} className={classes.lessonsCard}>
+                        
+                        <div className={classes.lessonsGroup}>
+                            {chapter.lessons.map((lesson, lessonIndex) => {
+                                return (
+                                    <div key={lessonIndex} className={classes.row}>
+                                        <Lesson lesson={lesson} />
+                                    </div>
+                                )
+                            })}
+                        </div>  
+                        
+                    </Card>
                     </div>
-                    <div class="collapsible-body">
+                        </li>
+                    </ul>
+                    </>
+            )
+            })} 
+            </Card>
 
-                <Card key={indx} className={classes.lessonsCard}>
-                    
-                    <div className={classes.lessonsGroup}>
-                        {chapter.lessons.map((lesson, lessonIndex) => {
-                            return (
-                                <div key={lessonIndex} className={classes.row}>
-                                    <Lesson lesson={lesson} />
+           
+            <Card>
+                        <div className={classes.btnPosition}>
+                        <Avatar className={classes.buttonicon} onClick={togglePopup} alt="Knapp for medaljer" src="../../img/trophyBtn.svg" style={{transform: 'scale(1)'}} />
+                        {isOpen && <Popup
+                          content={<>
+                            <SideBar className={classes.sideBar} classes={classes} chapters={chapters} cmdr={cmdr}/>
+                          </>}
+                          handleClose={togglePopup}
+                        />}
+                          </div>
+            </Card>
+            </div>
+
+        }
+        else {
+            return <div className={classes.content} >
+            <Card className={classes.sideContent}>
+                
+            {chapters.map((chapter, indx) => {
+                //console.log(JSON.stringify({chapter}) + " - " + indx);
+                
+                return (
+                    <>
+                    <TopChapters topChapters={topChapters} chapter={chapter} indx={indx} classes={classes} />
+                    <ul class="collapsible popout">
+                        <li>
+                        <div class="collapsible-header" style={{flexDirection: 'row'}}>
+                            
+                            <Typography className={classes.title} >
+                                {chapter.title}
+                            </Typography>
+                            <div className={classes.avatarGroupsStyle0}>
+                                <div id="avatGrp" className={classes.avatarGroupsStyle}>
+                                    <div className={classes.avatarGroupsStyle2}>
+                                        <AvatarGroups chapter={chapter} />
+                                    </div>
+                                    <ChapterCirc chapter={chapter} />
                                 </div>
-                            )
-                        })}
-                    </div>  
-                    
-                </Card>
-                </div>
-                    </li>
-                </ul>
-                </>
-        )
-        })} 
-        </Card>
-            <SideBar className={classes.sideBar} classes={classes} chapters={chapters} cmdr={cmdr}/>
-        </div>
- {/*       <Button variant="primary" onClick={requestCrossResource.bind(null, config['CROSS_LESSON_DEFINED_ID'], config['CROSS_LESSON_COURSE_ORIGINAL_ID'])}>
-            Or see previous course lesson
-    </Button> */}
-}
+                            </div>
+                        </div>
+                        <div class="collapsible-body">
+    
+                    <Card key={indx} className={classes.lessonsCard}>
+                        
+                        <div className={classes.lessonsGroup}>
+                            {chapter.lessons.map((lesson, lessonIndex) => {
+                                return (
+                                    <div key={lessonIndex} className={classes.row}>
+                                        <Lesson lesson={lesson} />
+                                    </div>
+                                )
+                            })}
+                        </div>  
+                        
+                    </Card>
+                    </div>
+                        </li>
+                    </ul>
+                    </>
+            )
+            })} 
+            </Card>
+                <SideBar className={classes.sideBar} classes={classes} chapters={chapters} cmdr={cmdr}/>
+            </div>
+
+        } 
+    }
+
 
 
 export default Collection;

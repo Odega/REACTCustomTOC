@@ -6,8 +6,8 @@ import Box from '@material-ui/core/Box';
 
 function LinearProgressWithLabel(props) {
     return (
-      <Box display="flex" alignItems="center" lineHeight={100}>
-        <Box width="330px" mr={-4}>
+      <Box display="flex" alignItems="center" lineHeight={100} style={{flex: 1}}>
+        <Box width={'100%'} mr={-5} >
           <LinearProgress variant="determinate" {...props} />
         </Box>
         <Box minWidth={100}>
@@ -23,7 +23,7 @@ function LinearProgressWithLabel(props) {
  
   const BorderLinearProgressTrophy = withStyles((theme) => ({
     root: {
-      height: 20,
+      height: 15,
       borderRadius: 50,
       lineHeight: 1,
     },

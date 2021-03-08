@@ -17,10 +17,10 @@ function ChapterCirc(props) {
     totScore = Math.round(score/count);
 
     return (
-      <div style={{width: '55px'}}>
-      <CircularProgressbarWithChildren value={totScore} strokeWidth={14}styles={buildStyles({pathColor: 'green'})}>
+      <div style={{width: '55px', margin: 'auto'}}>
+      <CircularProgressbarWithChildren value={totScore} strokeWidth={14} styles={buildStyles({pathColor: 'green'})}>
         {/* Put any JSX content in here that you'd like. It'll be vertically and horizonally centered. */}
-        <div style={{ fontSize: 15, marginLeft: 5, marginTop: -2 }}>
+        <div style={{ fontSize: 15, marginLeft: 5, marginTop: -2}}>
           <strong>{totScore}%</strong>
         </div>
       </CircularProgressbarWithChildren>

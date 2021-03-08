@@ -1,4 +1,3 @@
-import classes from './collection'
 import React from 'react';
 import { Typography } from '@material-ui/core';
 
@@ -6,7 +5,7 @@ import { Typography } from '@material-ui/core';
 let isUsed = [];
 let counter = 0;
 
-function TopChapters({topChapters, chapter, indx}) {
+function TopChapters({topChapters, chapter, indx, classes}) {
     //console.log(chapters.parent == topChapters.id);
     //console.log("fafafafafafafafafa");
     //console.log(topChapters);
@@ -53,7 +52,7 @@ function TopChapters({topChapters, chapter, indx}) {
                 isUsed.push(topChap);
                 return(
                     <React.Fragment >
-                        <div className={classes.toptopChapHeader}>
+                        <div className={classes.topChapHeader}>
                             {topChap}
                             </div>
                     </React.Fragment>  

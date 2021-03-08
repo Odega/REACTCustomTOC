@@ -18,6 +18,7 @@ createStyles({
     lessonsGroup: {
         display: 'flex',
         flexWrap: 'wrap',
+        justifyContent: 'center'
         
     },
     toptopChapHeader: {
@@ -27,7 +28,7 @@ createStyles({
     },
     topChapHeader: {
         variantMapping: 'h5',
-        marginLeft: 7,
+        marginLeft: 10,
         fontSize: 20
     },
     row: {
@@ -47,8 +48,8 @@ createStyles({
         display: 'flex',
         justifyContent: 'center',
         // flex: 1 gjør at siden endres avhengig av max bredde
-        paddingLeft: '10%',
-        paddingRight: '10%',
+        paddingLeft: '5%',
+        paddingRight: '5%',
         flexDirection: 'row',
         marginBottom: 20,
         color: '#F5F5F5',
@@ -146,7 +147,10 @@ createStyles({
         flex: 1,
         verticalAlign: 'middle',
         flexDirection: 'row',
-        margin: 5
+        justifyContent: 'center',
+        margin: 5,
+        width: '100%',
+        marginLeft: 20
     },
     medaljeWrapper: {
         display: 'flex',
@@ -222,7 +226,8 @@ createStyles({
 
     medaljeStyle: {
         display: 'flex',
-        right: -10,
+        right: -14,
+        top: -10,
         position: 'absolute',
         transform: 'scale(2)',
 

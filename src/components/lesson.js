@@ -20,22 +20,15 @@ import UseMobileStyles from '../styles/stylesMobile';
 import UseStyles from '../styles/styles';
 
 function devicedetect () {
-    console.log(window.innerWidth);
-    if (window.innerWidth > 0 && window.innerWidth <= 692) {
-        console.log('mobile');
-        return (
-            UseMobileStyles()
-        )
-
-    };
-    if (window.innerWidth > 692 && window.innerWidth <= 1224) {
-        console.log('tablet');
+    //onsole.log(window.innerWidth);
+    if (window.innerWidth <= 1224) {
+        //console.log('tablet');
         return (
             UseTabletStyles()
         )
     }
     else {
-        console.log('vanlig');
+        //console.log('vanlig');
         return (
             UseStyles()
         )
