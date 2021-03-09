@@ -94,7 +94,7 @@ function Collection(props) {
         return <Loader />
     }
     //console.log("----------------------------------------------------");
-    console.log(collectionDetails);
+    //console.log(collectionDetails);
     //console.log("----------------------------------------------------");
     let chapters = [];
     const data = {

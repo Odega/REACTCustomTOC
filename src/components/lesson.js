@@ -43,9 +43,9 @@ function lessonTime(lesson) {
     }
 
     return (
-        <p>
+        <>
             {formatDate(lesson.time)}
-        </p>
+        </>
     )
 }
 

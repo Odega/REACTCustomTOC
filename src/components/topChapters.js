@@ -9,17 +9,28 @@ function TopChapters({topChapters, chapter, indx, classes}) {
     //console.log(chapters.parent == topChapters.id);
     //console.log("fafafafafafafafafa");
     //console.log(topChapters);
-    if(indx == 0) isUsed = [];
+    //console.log("-----------------------------------");
+    //console.log(indx + " " + chapter.title + " " + chapter.parent);
+    if(indx == 0) {
+        isUsed = [];
+        //console.log("-- isUsed RESET --");
+    }
     if (topChapters.find(x => x.id === chapter.parent)){
         let index = topChapters.findIndex(x => x.id === chapter.parent);
         let topChap = topChapters[index].title;
         let topChapParent = topChapters[index].parent;
 
+        //console.log("topChap: "+ topChap);
+        //console.log("topChapParent: " + topChapParent)
+
         //console.log({topChap});
 
         if (topChapParent == null){
+            //console.log("Index: "+ indx + " - TopTopChap: " + topChap + " - Parent: "+ topChapParent + " - isUsed: " + isUsed.includes(topChap));
+            //console.log(isUsed);
             if(!isUsed.includes(topChap)){
                 isUsed.push(topChap);
+                //console.log("Pushed: " + topChap);
                 return (
                     <React.Fragment>
                         <div className={classes.toptopChapHeader}>
@@ -32,6 +43,8 @@ function TopChapters({topChapters, chapter, indx, classes}) {
                 return null
             }
         }else{
+            //console.log("TOPCHAPPARENT ER  IKKE NULL");
+            //console.log("TopTopChap: " + topChap + " - Parent: "+ topChapParent + " - isUsed: " + isUsed.includes(topChap));
             let topTopIndex = topChapters.findIndex(x => x.id === topChapParent);
             let topTopChap = topChapters[topTopIndex].title;
 
@@ -59,10 +72,11 @@ function TopChapters({topChapters, chapter, indx, classes}) {
                 )
             }else if(isUsed.includes(topChap) && isUsed.includes(topTopChap)){
                 return null
+            }else{
+                return null
             }
         }
     }else {return null}
-
 }
 
 export default TopChapters;
