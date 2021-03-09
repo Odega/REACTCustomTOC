@@ -133,7 +133,6 @@ function Collection(props) {
                 
             {chapters.map((chapter, indx) => {
                 //console.log(JSON.stringify({chapter}) + " - " + indx);
-                
                 return (
                     <>
                     <TopChapters topChapters={topChapters} chapter={chapter} indx={indx} classes={classes} />
@@ -178,15 +177,15 @@ function Collection(props) {
 
            
             <Card>
-                        <div className={classes.btnPosition}>
-                        <Avatar className={classes.buttonicon} onClick={togglePopup} alt="Knapp for medaljer" src="../../img/trophyBtn.svg" style={{transform: 'scale(1)'}} />
-                        {isOpen && <Popup
-                          content={<>
-                            <SideBar className={classes.sideBar} classes={classes} chapters={chapters} cmdr={cmdr}/>
-                          </>}
-                          handleClose={togglePopup}
-                        />}
-                          </div>
+                <div className={classes.btnPosition}>
+                <Avatar className={classes.buttonicon} onClick={togglePopup} alt="Knapp for medaljer" src="../../img/trophyBtn.svg" style={{transform: 'scale(1)'}} />
+                {isOpen && <Popup
+                    content={<>
+                    <SideBar className={classes.sideBar} classes={classes} chapters={chapters} cmdr={cmdr}/>
+                    </>}
+                    handleClose={togglePopup}
+                />}
+                    </div>
             </Card>
             </div>
 
@@ -196,7 +195,7 @@ function Collection(props) {
             <Card className={classes.sideContent}>
                 
             {chapters.map((chapter, indx) => {
-                //console.log(JSON.stringify({chapter}) + " - " + indx);
+                console.log(JSON.stringify({chapter}) + " - " + indx);
                 
                 return (
                     <>
