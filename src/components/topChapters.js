@@ -14,7 +14,7 @@ function TopChapters({topChapters, chapter, indx, classes}) {
     if(chapter.parent == null){
         chapter.parent = "orphan";
     }
-    console.log(indx + " " + chapter.title + " " + chapter.parent);
+    //console.log(indx + " " + chapter.title + " " + chapter.parent);
     if(indx == 0) {
         isUsed = [];
         //console.log("-- isUsed RESET --");
@@ -70,7 +70,9 @@ function TopChapters({topChapters, chapter, indx, classes}) {
                 isUsed.push(topChap);
                 return(
                     <React.Fragment >
-                        
+                    <div className={classes.topChapHeader}>
+                        {topChap}
+                        </div> 
                     </React.Fragment>  
                 )
             }else if(isUsed.includes(topChap) && isUsed.includes(topTopChap)){
