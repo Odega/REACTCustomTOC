@@ -22,14 +22,18 @@ createStyles({
         
     },
     toptopChapHeader: {
-        fontSize: '16',
-        fontWeight: 'bold',
         variantMapping: 'h4',
-        marginLeft: 5,
+        marginLeft: 8,
+        fontSize: 26,
+        marginTop: 15,
+        marginBottom: 5
     },
     topChapHeader: {
-        fontSize: '14',
-        marginLeft: 8
+        variantMapping: 'h5',
+        marginLeft: 12,
+        fontSize: 18,
+        marginBottom: 10
+
     },
     row: {
         display: 'flex',
@@ -42,6 +46,17 @@ createStyles({
         textAlign: 'center',
         marginTop: 21,
         color: "textprimary",
+        verticalAlign: 'middle',
+        justifyContent: 'center',
+        display: 'flex'
+
+    },
+    titleModul: {
+        justifyContent: 'center',
+        flex: 1,
+        margin: 'auto',
+
+
 
     },
     content : {
@@ -49,13 +64,16 @@ createStyles({
         justifyContent: 'center',
         width: '100%',
         // flex: 1 gjør at siden endres avhengig av max bredde
-        flexDirection: 'column-reverse',
+        flexDirection: 'column',
         marginBottom: 20,
-        color: '#F5F5F5',
+        backgroundColor: '#F5F5F5',
+
     },
     sideContent : {
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'center',
+        verticalAlign: 'middle',
         marginBottom: 20,
         marginTop: 20,
         marginLeft: 20,
@@ -69,12 +87,11 @@ createStyles({
         borderWidth: 0,
         elevation: 0,
         border: 0,
+
     },
     sideBar: {
         display: 'flex',
-        flex: 1,
         flexDirection: 'row',
-        height: '100%',
         justifyContent: 'center',
         marginTop: 20,
         marginBottom: 20,
@@ -86,25 +103,33 @@ createStyles({
         justifyContent: 'center',
     },
     avatarGroupsStyle0: {
-        marginLeft: 'auto', 
+        margin: 'auto', 
         display: 'flex', 
-        flexDirection: 'row'
+        flexDirection: 'row',
+ 
+
 
     },
     avatarGroupsStyle: {
         display: 'flex',
         justifyContent: 'right',
         marginLeft:'10px',
+        flexDirection: 'row'
+        
+        
     },
     avatarGroupsStyle2: {
-        transform: 'scale(1.6)', 
-        marginTop: 10, 
-        marginRight: 20
+        transform: 'scale(1)', 
+        margin: 'auto',
+        display: 'flex',
+
+        
     },
     trophyView: {
         display: 'flex',
         justifyContent: 'center',
         textAlign: 'center',
+
 
 
 
@@ -142,19 +167,20 @@ createStyles({
         justifyContent: 'center',
         marginLeft: 'auto',
         marginRight: 'auto',
-        textAlign: 'center'
+        textAlign: 'center',
+
     },
     medaljeBarStyle: {
         display: 'flex',
         verticalAlign: 'middle',
         flexDirection: 'row',
-        margin: 5,
-        width: '100%',
+        marginLeft: 20,
+        width: '100%'
+
 
     },
     medaljeWrapper: {
         display: 'flex',
-        flexWrap: 'wrap',
         flexDirection: 'column',
         justifyContent: 'center',
         marginLeft: 'auto',
@@ -171,7 +197,7 @@ createStyles({
         marginLeft: 'auto',
         marginRight: 'auto',
         position: 'relative',
-        height: '20rem',
+        height: '21rem',
         width: '16rem',
         textAlign: 'center',
         cursor: 'pointer',
@@ -186,7 +212,7 @@ createStyles({
     },
     media: {
         justifyContent: 'center',
-        width: 130, height: 100, alignContent: 'center', borderRadius: '10%' 
+        width: 130, height: 100, alignContent: 'center', borderRadius: '8%' 
 
     },
     cardImgCenter: {
@@ -197,13 +223,15 @@ createStyles({
     },
     styleFlex: {
         display: 'flex',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginTop: 10,
+
     },
     iconStyle: {
         display: 'flex',
         color: 'white',
         right: -8,
-        top: -5,
+        top: -8,
         position: 'absolute',
         borderRadius: '60%',
         fontSize: '25px',
@@ -227,16 +255,62 @@ createStyles({
 
     medaljeStyle: {
         display: 'flex',
-        right: -10,
+        right: -14,
+        top: -10,
         position: 'absolute',
-        transform: 'scale(2)',
+        transform: 'scale(1.5)',
+
+
+    },
+    buttonStyle: {
+        display: 'flex',
+        right: 30,
+        top: 30,
+        position: 'absolute',
+        transform: 'scale(1.5)',
 
 
     },
     tidStyle: {
         variant: "subtitle2",
         marginLeft: 5, 
-        lineHeight: 0
+        lineHeight: 0,
+        display: 'flex',
+        justifyContent: 'center',
+        verticalAlign: 'middle'
+    },
+
+      buttonWrapper: {
+        display: 'flex',
+        position: 'fixed',
+        borderRadius: '50%',
+        height: '100px',
+        width: '100px',
+        right: '5rem'
+    },
+
+    buttonicon: {
+        display: 'flex',
+        position: 'fixed',
+        alignContent: 'center',
+        justifyContent: 'center',
+        cursor: 'pointer',
+        height: '50px',
+        width: '50px',
+        backgroundColor: '#3369ff',
+        borderRadius: '50%',
+        boxShadow: 'inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17)',
+    },
+    btnPosition: {
+        overflow: 'auto',
+        justifyContent: 'center',
+        position: 'fixed',
+        display: 'flex',
+        top: 6,
+        right: 33,
+
+
+
     }
 }),
 )

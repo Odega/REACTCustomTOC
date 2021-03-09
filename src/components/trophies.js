@@ -24,16 +24,17 @@ function Trophies({cmdr, classes}) {
     cmdr.forEach(indx =>
             indx.lessons.forEach(indy =>{
                 //console.log(indy.name + " - " + indy.score)
-                if(indy.score >= 80){
+                if(indy.score >= 21){
                     tGold++;
                 }
-                if(indy.score >= 50 && indy.score < 80){
+                if(indy.score >= 14 && indy.score < 21){
                     tSilver++;
                 }
-                if(indy.score >= 1 && indy.score < 50){
+                if(indy.score >= 1 && indy.score < 14){
                     tBronze++;
                 }
                 count += indy.score;
+
                 totErr += indy.errors;
                 //console.log(formatDate(indy.time));
                 //console.log(totTime + " + " + indy.time);
@@ -71,7 +72,7 @@ function Trophies({cmdr, classes}) {
             }
             
         }
-    
+        //console.log(totScr)
     //console.log(tGold + " " + tSilver + " " + tBronze);
     //console.log(totErr);
     //console.log(formatDate(totTime));
@@ -81,7 +82,7 @@ function Trophies({cmdr, classes}) {
 
             <Card className={classes.trophyWrapper}>
             <Typography className={classes.title} color="textprimary" gutterBottom variant="h4">
-            Trofeer
+            Trofeer og medaljer
             </Typography>
             <view className={classes.trophyView}>
                 <view className={classes.trophyViewText}>

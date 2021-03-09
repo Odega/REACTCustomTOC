@@ -5,11 +5,13 @@
     "//c": "Matematikk 5: 5763033568247808",
     "//d": "Syklus: 4730689350270976",
     "//e": "Matematikk 5-7 grunnleggende: 5814764599640064",
+    "//f": "Matematikk 9: 6041119129993216",
+    "//g": "Matematikk 10: 5578792710569984",
 
-    "LOOKING_FOOR_COURSE_ID": 6651893208711168,
+    "LOOKING_FOOR_COURSE_ID": 5578792710569984,
     "CROSS_LESSON_DEFINED_ID": 6713377262927872,
     "CROSS_LESSON_COURSE_ORIGINAL_ID": 6041119129993216,
     "APPLICATION_BASE_URL": "https://min.kunnskap.no",
     "PUBLIC_PUBLISHER_URL": "/Kunnskap",
-    "PUBLIC_COURSE_URL": "/courses/6651893208711168/next/~structure"
+    "PUBLIC_COURSE_URL": "/courses/5578792710569984/next/~structure"
 }
