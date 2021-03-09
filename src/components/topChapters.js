@@ -11,6 +11,10 @@ function TopChapters({topChapters, chapter, indx, classes}) {
     //console.log(topChapters);
     //console.log("-----------------------------------");
     //console.log(indx + " " + chapter.title + " " + chapter.parent);
+    if(chapter.parent == null){
+        chapter.parent = "orphan";
+    }
+    console.log(indx + " " + chapter.title + " " + chapter.parent);
     if(indx == 0) {
         isUsed = [];
         //console.log("-- isUsed RESET --");
@@ -19,7 +23,6 @@ function TopChapters({topChapters, chapter, indx, classes}) {
         let index = topChapters.findIndex(x => x.id === chapter.parent);
         let topChap = topChapters[index].title;
         let topChapParent = topChapters[index].parent;
-
         //console.log("topChap: "+ topChap);
         //console.log("topChapParent: " + topChapParent)
 
@@ -40,6 +43,7 @@ function TopChapters({topChapters, chapter, indx, classes}) {
                     </React.Fragment>
                 )
             }else{
+                console.log(topChap);
                 return null
             }
         }else{
@@ -51,6 +55,7 @@ function TopChapters({topChapters, chapter, indx, classes}) {
             if(!isUsed.includes(topChap) && !isUsed.includes(topTopChap)){
                 isUsed.push(topChap);
                 isUsed.push(topTopChap);
+               
                 return (
                     <React.Fragment>
                         <div className={classes.toptopChapHeader}>
@@ -65,9 +70,7 @@ function TopChapters({topChapters, chapter, indx, classes}) {
                 isUsed.push(topChap);
                 return(
                     <React.Fragment >
-                        <div className={classes.topChapHeader}>
-                            {topChap}
-                            </div>
+                        
                     </React.Fragment>  
                 )
             }else if(isUsed.includes(topChap) && isUsed.includes(topTopChap)){
@@ -76,7 +79,19 @@ function TopChapters({topChapters, chapter, indx, classes}) {
                 return null
             }
         }
-    }else {return null}
+    }else {
+        if(chapter.parent === "orphan"){
+            return(
+                <React.Fragment>
+                <div className={classes.toptopChapHeader}>
+                            {chapter.title}
+                            </div>
+                </React.Fragment>
+            )
+        }else{
+            return null
+        }
+    }
 }
 
 export default TopChapters;
