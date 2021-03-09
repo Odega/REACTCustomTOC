@@ -23,13 +23,16 @@ createStyles({
     },
     toptopChapHeader: {
         variantMapping: 'h4',
-        marginLeft: 5,
+        marginLeft: 8,
         fontSize: 26,
+        marginTop: 15,
+        marginBottom: 5
     },
     topChapHeader: {
         variantMapping: 'h5',
-        marginLeft: 10,
+        marginLeft: 12,
         fontSize: 18,
+        marginBottom: 10
 
     },
     row: {
@@ -51,7 +54,8 @@ createStyles({
     titleModul: {
         justifyContent: 'center',
         flex: 1,
-        margin: 'auto'
+        margin: 'auto',
+
 
 
     },
@@ -62,7 +66,8 @@ createStyles({
         // flex: 1 gjør at siden endres avhengig av max bredde
         flexDirection: 'column',
         marginBottom: 20,
-        color: '#F5F5F5',
+        backgroundColor: '#F5F5F5',
+
     },
     sideContent : {
         display: 'flex',
@@ -82,6 +87,7 @@ createStyles({
         borderWidth: 0,
         elevation: 0,
         border: 0,
+
     },
     sideBar: {
         display: 'flex',
@@ -91,7 +97,6 @@ createStyles({
         marginBottom: 20,
         marginRight: 20,
         marginLeft: 20,
-        width: '100%'
     },
     iconStyle: {
         display: 'flex',
@@ -192,7 +197,7 @@ createStyles({
         marginLeft: 'auto',
         marginRight: 'auto',
         position: 'relative',
-        height: '20rem',
+        height: '21rem',
         width: '16rem',
         textAlign: 'center',
         cursor: 'pointer',
@@ -207,7 +212,7 @@ createStyles({
     },
     media: {
         justifyContent: 'center',
-        width: 130, height: 100, alignContent: 'center', borderRadius: '10%' 
+        width: 130, height: 100, alignContent: 'center', borderRadius: '8%' 
 
     },
     cardImgCenter: {
@@ -218,7 +223,9 @@ createStyles({
     },
     styleFlex: {
         display: 'flex',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginTop: 10,
+
     },
     iconStyle: {
         display: 'flex',
@@ -267,7 +274,10 @@ createStyles({
     tidStyle: {
         variant: "subtitle2",
         marginLeft: 5, 
-        lineHeight: 0
+        lineHeight: 0,
+        display: 'flex',
+        justifyContent: 'center',
+        verticalAlign: 'middle'
     },
 
       buttonWrapper: {
@@ -290,13 +300,6 @@ createStyles({
         backgroundColor: '#3369ff',
         borderRadius: '50%',
         boxShadow: 'inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17)',
-        
-
-
-
-
-
-
     },
     btnPosition: {
         overflow: 'auto',

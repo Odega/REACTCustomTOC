@@ -8,7 +8,7 @@ const useStyles = makeStyles({
     
 
     width: '100%',
-    height: '13%',
+
     top: 0,
     left: 0
   

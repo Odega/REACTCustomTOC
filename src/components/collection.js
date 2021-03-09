@@ -139,7 +139,7 @@ function Collection(props) {
                     <TopChapters topChapters={topChapters} chapter={chapter} indx={indx} classes={classes} />
                     <ul class="collapsible popout">
                         <li>
-                        <div class="collapsible-header">
+                        <div class="collapsible-header" >
                             
                             <Typography className={classes.titleModul}>
                                 {chapter.title}
@@ -202,8 +202,8 @@ function Collection(props) {
                     <>
                     <TopChapters topChapters={topChapters} chapter={chapter} indx={indx} classes={classes} />
                     <ul class="collapsible popout">
-                        <li>
-                        <div class="collapsible-header" style={{flexDirection: 'row'}}>
+                        <li >
+                        <div class="collapsible-header" >
                             
                             <Typography className={classes.title} >
                                 {chapter.title}

@@ -23,13 +23,17 @@ createStyles({
     },
     toptopChapHeader: {
         variantMapping: 'h4',
-        marginLeft: 5,
-        fontSize: 30
+        marginLeft: 8,
+        fontSize: 26,
+        marginTop: 15,
+        marginBottom: 5
     },
     topChapHeader: {
         variantMapping: 'h5',
-        marginLeft: 10,
-        fontSize: 20
+        marginLeft: 12,
+        fontSize: 18,
+        marginBottom: 10
+
     },
     row: {
         display: 'flex',
@@ -43,6 +47,11 @@ createStyles({
         marginTop: 21,
         color: "textprimary",
 
+    },
+    titleModul: {
+        justifyContent: 'center',
+        flex: 1,
+        margin: 'auto',
     },
     content : {
         display: 'flex',
@@ -62,7 +71,7 @@ createStyles({
         marginTop: 20,
         marginLeft: 20,
         marginRight: 20,
-        // backgroundColor: '#F5F5F5',
+        //backgroundColor: '#F5F5F5',
         backgroundColor: 'white',
         shadowColor: 'rgba(0,0,0, 0.0)',
         shadowOffset: { height: 0, width: 0 },
@@ -70,7 +79,7 @@ createStyles({
         shadowRadius: 0,
         borderWidth: 0,
         elevation: 0,
-        border: 0,
+        border: 'none',
     },
     sideBar: {
         display: 'flex',
@@ -174,7 +183,8 @@ createStyles({
         width: '16rem',
         textAlign: 'center',
         cursor: 'pointer',
-        overflow: 'visible'
+        overflow: 'visible',
+        marginTop: 'auto'
     },
     buttonProgress: {
         position: 'absolute',
@@ -196,7 +206,8 @@ createStyles({
     },
     styleFlex: {
         display: 'flex',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginTop: 10,
     },
     iconStyle: {
         display: 'flex',
