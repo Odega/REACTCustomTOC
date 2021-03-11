@@ -70,7 +70,9 @@ function TopChapters({topChapters, chapter, indx, classes}) {
                 isUsed.push(topChap);
                 return(
                     <React.Fragment >
-                        
+                        <div className={classes.topChapHeader}>
+                        {topChap}
+                        </div>
                     </React.Fragment>  
                 )
             }else if(isUsed.includes(topChap) && isUsed.includes(topTopChap)){

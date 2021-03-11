@@ -8,7 +8,6 @@ const useStyles = makeStyles({
     
 
     width: '100%',
-
     top: 0,
     left: 0
   
@@ -30,6 +29,7 @@ const useStyles = makeStyles({
     content: 'x',
     cursor: 'pointer',
     position: 'absolute',
+    overflow: 'auto',
     right: '32px',
     top: '30px',
     background: '#AAAAAA',

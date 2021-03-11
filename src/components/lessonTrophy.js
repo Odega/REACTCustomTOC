@@ -6,17 +6,17 @@ function LessonTrophy(props) {
     //console.log("ææææææææææææææææææææææææææææææææææææææææææææææææææææææææææææææææ");
     //console.log(props);
     
-        if(props.props.lesson.score >= 21){
+        if(props.props.lesson.score >= 80){
             return (
                 <Avatar alt="Gold" src="../../img/gold.svg" />
             )
         }
-        if(props.props.lesson.score >= 14 && props.props.lesson.score < 21){
+        if(props.props.lesson.score >= 50 && props.props.lesson.score < 80){
             return (
                 <Avatar alt="Silver" src="../../img/silver.svg" />
             )
         }
-        if(props.props.lesson.score >= 1 && props.props.lesson.score < 14){
+        if(props.props.lesson.score >= 20 && props.props.lesson.score < 50){
             return (
                 <Avatar alt="Bronze" src="../../img/bronze.svg" />
             )

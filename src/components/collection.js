@@ -26,6 +26,8 @@ import AvatarGroupsM from './avatarGrMobile';
 import Popup from './popupBtn';
 import AvatarsM from './avatarsMobile';
 import Avatar from '@material-ui/core/Avatar';
+import { useTabIndex } from 'react-tabindex';
+import Tooltip from "@material-ui/core/Tooltip";
 
 const Devicedetect = () => {
     const [width, setWidth] = React.useState(window.innerWidth);
@@ -77,7 +79,8 @@ function makeChapter(lessons, chapters, chapt) {
 }
 
 let cmdr;
-function Collection(props) {
+function Collection(props, onClick) {
+    const tabIndex = useTabIndex();
     const classes =Devicedetect();
     const [collectionDetails, setCollectionDetails] = React.useState(null);
     const [isOpen, setIsOpen] = useState(false);
@@ -126,17 +129,17 @@ function Collection(props) {
         setIsOpen(!isOpen);
       }
 
-
         if (window.innerWidth <= 1224) {
             return <div className={classes.content} >
+           
             <Card className={classes.sideContent}>
                 
             {chapters.map((chapter, indx) => {
                 //console.log(JSON.stringify({chapter}) + " - " + indx);
                 return (
                     <>
-                    <TopChapters topChapters={topChapters} chapter={chapter} indx={indx} classes={classes} />
-                    <ul class="collapsible popout">
+                    <TopChapters topChapters={topChapters} chapter={chapter} indx={indx} classes={classes}/>
+                    <ul class="collapsible popout" >
                         <li>
                         <div class="collapsible-header" >
                             
@@ -154,17 +157,17 @@ function Collection(props) {
                         </div>
                         <div class="collapsible-body">
     
-                    <Card key={indx} className={classes.lessonsCard}>
+                    <Card key={indx} className={classes.lessonsCard} >
                         
                         <div className={classes.lessonsGroup}>
                             {chapter.lessons.map((lesson, lessonIndex) => {
                                 return (
                                     <div key={lessonIndex} className={classes.row}>
-                                        <Lesson lesson={lesson} />
+                                        <Lesson lesson={lesson}/>
                                     </div>
                                 )
                             })}
-                        </div>  
+                        </div>                  
                         
                     </Card>
                     </div>
@@ -174,11 +177,11 @@ function Collection(props) {
             )
             })} 
             </Card>
-
-           
-            <Card>
+             <Card>
                 <div className={classes.btnPosition}>
-                <Avatar className={classes.buttonicon} onClick={togglePopup} alt="Knapp for medaljer" src="../../img/trophyBtn.svg" style={{transform: 'scale(1)'}} />
+                <Tooltip placement="left" title="Totaloversikt over medaljer og pokaler">
+                <Button className={classes.buttonicon} tabIndex={1} onClick={togglePopup} alt="Knapp for medaljer"> <img src="../../img/trophyBtn.svg" /> </Button>
+                </Tooltip>
                 {isOpen && <Popup
                     content={<>
                     <SideBar className={classes.sideBar} classes={classes} chapters={chapters} cmdr={cmdr}/>
@@ -224,7 +227,7 @@ function Collection(props) {
                             {chapter.lessons.map((lesson, lessonIndex) => {
                                 return (
                                     <div key={lessonIndex} className={classes.row}>
-                                        <Lesson lesson={lesson} />
+                                        <Lesson lesson={lesson}/>
                                     </div>
                                 )
                             })}
