@@ -39,7 +39,7 @@ createStyles({
         display: 'flex',
         justifyContent: 'center',
         flexDirection: 'column',
-        margin: 21,
+        padding: '3%',      
 
     },
     title: {
@@ -139,6 +139,7 @@ createStyles({
         justifyContent: 'center',
         textAlign: 'center',
         verticalAlign: 'middle',
+        cursor: 'pointer'
 
 
 
@@ -148,6 +149,7 @@ createStyles({
         justifyContent: 'center',
         fontSize: '105px',  
         marginTop: 10, 
+
 
         
     },
@@ -197,7 +199,7 @@ createStyles({
         marginLeft: 'auto',
         marginRight: 'auto',
         position: 'relative',
-        height: '21rem',
+        marginBottom: 20,
         width: '16rem',
         textAlign: 'center',
         cursor: 'pointer',
@@ -274,10 +276,10 @@ createStyles({
     tidStyle: {
         variant: "subtitle2",
         marginLeft: 5, 
-        lineHeight: 0,
+        lineHeight: 1.6,
         display: 'flex',
-        justifyContent: 'center',
-        verticalAlign: 'middle'
+        marginBottom: 10
+
     },
 
       buttonWrapper: {
@@ -302,15 +304,18 @@ createStyles({
         boxShadow: 'inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17)',
     },
     btnPosition: {
-        overflow: 'auto',
         justifyContent: 'center',
-        position: 'fixed',
+        position: 'absolute',
         display: 'flex',
         top: 6,
         right: 33,
 
 
 
+    },
+    tooltipWidth: {
+        maxWidth: '150px',
+        justifyContent: 'center'
     }
 }),
 )

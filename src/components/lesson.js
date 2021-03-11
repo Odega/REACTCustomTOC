@@ -18,6 +18,7 @@ import LessonTrophy from './lessonTrophy'
 import UseTabletStyles from '../styles/stylesTablet'
 import UseMobileStyles from '../styles/stylesMobile';
 import UseStyles from '../styles/styles';
+import { useTabIndex } from 'react-tabindex';
 
 function devicedetect () {
     //onsole.log(window.innerWidth);
@@ -50,6 +51,7 @@ function lessonTime(lesson) {
 }
 
 function Lesson(props) {
+    const tabIndex = useTabIndex();
     const classes = devicedetect();
     const onClick = React.useCallback(() => {
         communication.requestOpenLesson(props.lesson.id);
@@ -58,8 +60,12 @@ function Lesson(props) {
     if (props.lesson.time > 1000){
         tried = true;
     }
-    return <React.Fragment>
-        <Card className={classes.wrapper} onClick={onClick} style={!tried ? {opacity:'40%'} : {}}>
+    const onKeyPress = React.useCallback(() => {
+        communication.requestOpenLesson(props.lesson.id);
+    }, [props.lesson]);
+    
+    return <React.Fragment >
+        <Card className={classes.wrapper} onClick={onClick} tabIndex={0} onKeyPress={onKeyPress} style={!tried ? {opacity:'40%'} : {}}>
         <div className={classes.medaljeStyle} >
                         <LessonTrophy props={props} />
                 </div>

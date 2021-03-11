@@ -8,12 +8,16 @@ import { buildStyles, CircularProgressbarWithChildren } from "react-circular-pro
 import "react-circular-progressbar/dist/styles.css";
 import { CardActions } from '@material-ui/core';
 import BorderLinearProgressTrophy from './progressbarTrophies';
+import Tooltip from "@material-ui/core/Tooltip";
 
 
 function Trophies({cmdr, classes}) {
     let tGold = 0;
+    let pokGold = 0;
     let tSilver = 0;
+    let pokSilver = 0;
     let tBronze = 0;
+    let pokBronze = 0;
     let totTime = 0;
     let totErr = 0;
     let totScr = 0;
@@ -24,15 +28,30 @@ function Trophies({cmdr, classes}) {
     cmdr.forEach(indx =>
             indx.lessons.forEach(indy =>{
                 //console.log(indy.name + " - " + indy.score)
-                if(indy.score >= 21){
+                if(indy.score >= 80){
                     tGold++;
+                    if (Number.isInteger(tGold/4)) {
+                        pokGold ++;
+                    }
+
                 }
-                if(indy.score >= 14 && indy.score < 21){
+                if(indy.score >= 50 && indy.score < 80){
                     tSilver++;
+                    if (Number.isInteger(tSilver/4)) {
+                        pokSilver ++;
+                    }
+
                 }
-                if(indy.score >= 1 && indy.score < 14){
+                if(indy.score >= 20 && indy.score < 50){
                     tBronze++;
+                    if (Number.isInteger(tBronze/4)) {
+                        pokBronze++;
+                    }
+
                 }
+
+
+
                 count += indy.score;
 
                 totErr += indy.errors;
@@ -76,40 +95,59 @@ function Trophies({cmdr, classes}) {
     //console.log(tGold + " " + tSilver + " " + tBronze);
     //console.log(totErr);
     //console.log(formatDate(totTime));
+    let pokalG = false;
+    let pokalS = false;
+    let pokalB = false;
+    if (pokGold > 0){
+        pokalG = true;
+    }
+    if (pokSilver > 0){
+        pokalS = true;
+    }
+    if (pokBronze > 0){
+        pokalB = true;
+    }
+
     return (
     <React.Fragment>
         <div style={{margin:20}}>
 
             <Card className={classes.trophyWrapper}>
             <Typography className={classes.title} color="textprimary" gutterBottom variant="h4">
-            Trofeer og medaljer
+            Trofeer totalt
             </Typography>
             <view className={classes.trophyView}>
-                <view className={classes.trophyViewText}>
-                <GiTrophy className={classes.trophyStyle} style={{color: "gold"}}/>
-                <strong className={classes.trophyText}>{tGold}</strong>
+            <Tooltip classes={{tooltip: classes.tooltipWidth}} tabindex={1} title="For å få en medalje i gull må du ha over 80% riktig i et kapittel. Når du har fått 5 medaljer i gull, får du en gullpokal. " placement="bottom" >
+                <view className={classes.trophyViewText} >
+                <GiTrophy className={classes.trophyStyle} style={!pokalG ? {opacity: '20%', color: 'white', stroke: 'black', strokeWidth: 5 } : {color: 'gold', stroke: 'black', strokeWidth: 2}}/>
+                <strong className={classes.trophyText} style={!pokalG ? {color: 'white'} : {color: 'black'}}>{pokGold}</strong>
                 </view>
-                <view className={classes.trophyViewText}>
-                <GiTrophy className={classes.trophyStyle} style={{color: "silver",}}/>
-                <strong className={classes.trophyText}>{tSilver}</strong>
+                </Tooltip>
+                <Tooltip classes={{tooltip: classes.tooltipWidth}} tabindex={1} title="For å få en medalje i sølv må du ha over 50% riktig i et kapittel. Når du har fått 5 medaljer i sølv, får du en sølvpokal. " placement="bottom">
+                <view className={classes.trophyViewText} >
+                <GiTrophy className={classes.trophyStyle} style={!pokalS ? {opacity: '20%', color: 'white', stroke: 'black', strokeWidth: 5 } : {color: 'silver', stroke: 'black', strokeWidth: 2}}/>
+                <strong className={classes.trophyText} style={!pokalS ? {color: 'white'} : {color: 'black'}}>{pokSilver}</strong>
                 </view>
-                <view className={classes.trophyViewText}>
-                <GiTrophy className={classes.trophyStyle} style={{ color: "rgb(205, 127, 50)",}}/>
-                <strong className={classes.trophyText}>{tBronze}</strong>
+                </Tooltip>
+                <Tooltip classes={{tooltip: classes.tooltipWidth}} tabindex={1} title="For å få en medalje i bronse må du ha over 20% riktig i et kapittel. Når du har fått 5 medaljer i bronse, får du en bronsepokal. " placement="bottom" >
+                <view className={classes.trophyViewText} >
+                <GiTrophy className={classes.trophyStyle} style={!pokalB ? {opacity: '20%', color: "white", stroke: 'black', strokeWidth: 5 } : {color: "rgb(205, 127, 50)", stroke: 'black', strokeWidth: 2}} />
+                <strong className={classes.trophyText} style={!pokalB ? {color: 'white'} : {color: 'black'}}>{pokBronze}</strong>
                 </view>
+                </Tooltip>
                 </view >
                 <div className={classes.medaljeWrapper}>
                 <div className={classes.medaljeBarStyle}>
                 <Avatar style={{transform: 'scale(1.5)',}} alt="Gullmedalje" src="../../img/gold.svg" />
-                <BorderLinearProgressTrophy value={tGold} maxValue={count}/>
+                <BorderLinearProgressTrophy value={tGold} maxValue={5}/>
                 </div>
                 <div className={classes.medaljeBarStyle} >
                 <Avatar style={{transform: 'scale(1.5)',}} alt="Sølvmedalje" src="../../img/silver.svg" />
-                <BorderLinearProgressTrophy value={tSilver} maxValue={count}/>
+                <BorderLinearProgressTrophy value={tSilver} maxValue={5}/>
                 </div>
                 <div className={classes.medaljeBarStyle}>
                 <Avatar style={{transform: 'scale(1.5)',}} alt="Bronsemedalje" src="../../img/bronze.svg" />
-                <BorderLinearProgressTrophy value={tBronze} maxValue={count}/>
+                <BorderLinearProgressTrophy value={tBronze} maxValue={5}/>
                 </div>
                 </div>
                 

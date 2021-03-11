@@ -39,7 +39,7 @@ createStyles({
         display: 'flex',
         justifyContent: 'center',
         flexDirection: 'column',
-        margin: 21,
+        padding: '3%',
 
     },
     title: {
@@ -123,6 +123,7 @@ createStyles({
         justifyContent: 'center',
         textAlign: 'center',
         verticalAlign: 'middle',
+        cursor: 'pointer'
 
 
     },
@@ -179,8 +180,8 @@ createStyles({
         marginLeft: 'auto',
         marginRight: 'auto',
         position: 'relative',
-        height: '20rem',
-        width: '16rem',
+        marginBottom: 20,
+        width: '16rem',     
         textAlign: 'center',
         cursor: 'pointer',
         overflow: 'visible',
@@ -247,7 +248,13 @@ createStyles({
     tidStyle: {
         variant: "subtitle2",
         marginLeft: 5, 
-        lineHeight: 0
+        lineHeight: 1.6,
+        display: 'flex',
+        marginBottom: 10
+
+    },
+    tooltipWidth: {
+        maxWidth: '150px'
     }
 }),
 )
