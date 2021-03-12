@@ -297,8 +297,8 @@ createStyles({
         alignContent: 'center',
         justifyContent: 'center',
         cursor: 'pointer',
-        height: '50px',
-        width: '50px',
+        height: 60,
+        width: 60,
         backgroundColor: '#3369ff',
         borderRadius: '50%',
         boxShadow: 'inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17)',
@@ -308,7 +308,7 @@ createStyles({
         position: 'absolute',
         display: 'flex',
         top: 6,
-        right: 33,
+        right: 37,
 
 
 

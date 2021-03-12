@@ -1,6 +1,6 @@
 import React from 'react'
 import LinearProgress from '@material-ui/core/LinearProgress'; 
-import { createStyles, makeStyles, withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 

@@ -1,9 +1,6 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
-
 
 let isUsed = [];
-let counter = 0;
 
 function TopChapters({topChapters, chapter, indx, classes}) {
     //console.log(chapters.parent == topChapters.id);

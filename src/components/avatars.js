@@ -1,6 +1,8 @@
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
-import AvatarGroup from '@material-ui/lab/AvatarGroup';
+import imageSrc from './image/bronze.svg';
+import imageSrc2 from './image/gold.svg';
+import imageSrc3 from './image/silver.svg';
 
 function Avatars(chapter) {
     var gold = 0;
@@ -24,13 +26,13 @@ function Avatars(chapter) {
     const trophies = [];
  
     for (var o = 0; o < bronze; o++) {
-        trophies.push(<Avatar alt="Bronsemedalje" src="../../img/bronze.svg" style={{marginLeft: '-30px'}} />);
+        trophies.push(<Avatar alt="Bronsemedalje" src={imageSrc} style={{marginLeft: '-30px'}} />);
     }
     for (var i = 0; i < silver; i++) {
-        trophies.push(<Avatar alt="Sølvmedalje" src="../../img/silver.svg" style={{marginLeft: '-30px'}} />);
+        trophies.push(<Avatar alt="Sølvmedalje" src={imageSrc3} style={{marginLeft: '-30px'}} />);
     }
     for (var y = 0; y < gold; y++) {
-        trophies.push(<Avatar alt="Gullmedalje" src="../../img/gold.svg" style={{marginLeft: '-30px'}} />);
+        trophies.push(<Avatar alt="Gullmedalje" src={imageSrc2} style={{marginLeft: '-30px'}} />);
     }
 
     return (

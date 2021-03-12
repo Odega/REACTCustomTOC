@@ -2,13 +2,13 @@ import React, { Fragment } from 'react';
 import Card from '@material-ui/core/Card';
 import {GiTrophy} from 'react-icons/gi';
 import Typography from '@material-ui/core/Typography';
-import BorderLinearProgress from './progressBar';
-import { Avatar, CardMedia } from '@material-ui/core';
-import { buildStyles, CircularProgressbarWithChildren } from "react-circular-progressbar";
+import { Avatar } from '@material-ui/core';
 import "react-circular-progressbar/dist/styles.css";
-import { CardActions } from '@material-ui/core';
 import BorderLinearProgressTrophy from './progressbarTrophies';
 import Tooltip from "@material-ui/core/Tooltip";
+import imageSrc from './image/bronze.svg';
+import imageSrc2 from './image/gold.svg';
+import imageSrc3 from './image/silver.svg';
 
 
 function Trophies({cmdr, classes}) {
@@ -114,7 +114,7 @@ function Trophies({cmdr, classes}) {
 
             <Card className={classes.trophyWrapper}>
             <Typography className={classes.title} color="textprimary" gutterBottom variant="h4">
-            Trofeer totalt
+            Pokaler totalt
             </Typography>
             <view className={classes.trophyView}>
             <Tooltip classes={{tooltip: classes.tooltipWidth}} tabindex={1} title="For å få en medalje i gull må du ha over 80% riktig i et kapittel. Når du har fått 5 medaljer i gull, får du en gullpokal. " placement="bottom" >
@@ -138,15 +138,15 @@ function Trophies({cmdr, classes}) {
                 </view >
                 <div className={classes.medaljeWrapper}>
                 <div className={classes.medaljeBarStyle}>
-                <Avatar style={{transform: 'scale(1.5)',}} alt="Gullmedalje" src="../../img/gold.svg" />
+                <Avatar style={{transform: 'scale(1.5)',}} alt="Gullmedalje" src={imageSrc2} />
                 <BorderLinearProgressTrophy value={tGold} maxValue={5}/>
                 </div>
                 <div className={classes.medaljeBarStyle} >
-                <Avatar style={{transform: 'scale(1.5)',}} alt="Sølvmedalje" src="../../img/silver.svg" />
+                <Avatar style={{transform: 'scale(1.5)',}} alt="Sølvmedalje" src={imageSrc3} />
                 <BorderLinearProgressTrophy value={tSilver} maxValue={5}/>
                 </div>
                 <div className={classes.medaljeBarStyle}>
-                <Avatar style={{transform: 'scale(1.5)',}} alt="Bronsemedalje" src="../../img/bronze.svg" />
+                <Avatar style={{transform: 'scale(1.5)',}} alt="Bronsemedalje" src={imageSrc} />
                 <BorderLinearProgressTrophy value={tBronze} maxValue={5}/>
                 </div>
                 </div>

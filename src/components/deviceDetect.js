@@ -3,7 +3,6 @@ import MediaQuery from 'react-responsive';
 import UseTabletStyles from '../styles/stylesTablet'
 import UseMobileStyles from '../styles/stylesMobile';
 import UseStyles from '../styles/styles';
-import { useMediaQuery } from 'react-responsive'
 
 
 class MyMediaQuery extends Component {
@@ -16,7 +15,7 @@ class MyMediaQuery extends Component {
                 <MediaQuery maxDeviceWidth={1224}>
                     {UseTabletStyles()}
                 </MediaQuery>
-                <MediaQuery maxDeviceWidth={530}>
+                <MediaQuery maxDeviceWidth={400}>
                     {UseMobileStyles()}
                     
                 </MediaQuery>

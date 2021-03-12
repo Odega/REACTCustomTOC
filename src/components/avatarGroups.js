@@ -1,7 +1,7 @@
 import React from 'react'
 import Avatars from './avatars';
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
      lStyleNone: {
