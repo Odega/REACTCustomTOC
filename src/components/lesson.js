@@ -1,22 +1,12 @@
 import React, { Fragment } from 'react';
-import Avatar from '@material-ui/core/Avatar';
 import communication from '../communication/communication';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import IconButton from '@material-ui/core/IconButton';
-import LinearProgress from '@material-ui/core/LinearProgress'; 
-import { createStyles, makeStyles, withStyles } from '@material-ui/core/styles'
 import ScheduleIcon from '@material-ui/icons/Schedule';
-import {GiScaleMail, GiTrophy} from 'react-icons/gi';
-import {IconContext} from "react-icons"
 import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 import config from '../config.json';
-import { CardHeader, Card, CardActionArea, CardMedia, CardActions, Divider } from '@material-ui/core';
-import { icons } from 'react-icons/lib';
+import { CardHeader, Card, CardMedia, CardActions } from '@material-ui/core';
 import BorderLinearProgress from './progressBar'
 import LessonTrophy from './lessonTrophy'
 import UseTabletStyles from '../styles/stylesTablet'
-import UseMobileStyles from '../styles/stylesMobile';
 import UseStyles from '../styles/styles';
 import { useTabIndex } from 'react-tabindex';
 
@@ -63,7 +53,7 @@ function Lesson(props) {
     const onKeyPress = React.useCallback(() => {
         communication.requestOpenLesson(props.lesson.id);
     }, [props.lesson]);
-    
+
     return <React.Fragment >
         <Card className={classes.wrapper} onClick={onClick} tabIndex={0} onKeyPress={onKeyPress} style={!tried ? {opacity:'40%'} : {}}>
         <div className={classes.medaljeStyle} >

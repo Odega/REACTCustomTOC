@@ -1,29 +1,13 @@
 import React from "react";
-import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
   popupBox: {
     display: 'flex',
     position: 'fixed',
     flexDirection: 'column',
-    
-
     width: '100%',
     top: 0,
     left: 0
-  
-  },
-  box: {
-    display: 'flex',
-    position: 'relative',
-    justifyContent: 'center',
-    top: 0,
-    width: '70%',
-    margin: '0 auto',
-    height: 'auto',
-    maxHeight: '12%',
-    marginTop: 'calc(100vh - 85vh - 20px)',
-    background: '#fff',
-  
   },
   closeicon: {
     content: 'x',
@@ -45,9 +29,6 @@ const useStyles = makeStyles({
   
   },
 });
-
-
-
 
 function Popup (props) {
   const classes = useStyles();

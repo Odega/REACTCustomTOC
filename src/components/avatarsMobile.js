@@ -1,6 +1,9 @@
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
+import imageSrc from './image/bronze.svg';
+import imageSrc2 from './image/gold.svg';
+import imageSrc3 from './image/silver.svg';
 
 function AvatarsM(chapter) {
     var gold = 0;
@@ -26,13 +29,13 @@ function AvatarsM(chapter) {
     const trophiesBr = [];
  
     for (var o = 0; o < bronze; o++) {
-        trophiesBr.push(<Avatar alt="Bronsemedalje" src="../../img/bronze.svg" style={{marginLeft: '-25px', border: 'none', transform: 'scale(1.3)'}} />);
+        trophiesBr.push(<Avatar alt="Bronsemedalje" src={imageSrc} style={{marginLeft: '-25px', border: 'none', transform: 'scale(1.3)'}} />);
     }
     for (var i = 0; i < silver; i++) {
-        trophiesSi.push(<Avatar alt="Sølvmedalje" src="../../img/silver.svg" style={{marginLeft: '-25px', border: 'none', transform: 'scale(1.3)'}} />);
+        trophiesSi.push(<Avatar alt="Sølvmedalje" src={imageSrc3} style={{marginLeft: '-25px', border: 'none', transform: 'scale(1.3)'}} />);
     }
     for (var y = 0; y < gold; y++) {
-        trophiesGo.push(<Avatar alt="Gullmedalje" src="../../img/gold.svg" style={{marginLeft: '-25px', border: 'none', transform: 'scale(1.3)'}} />);
+        trophiesGo.push(<Avatar alt="Gullmedalje" src={imageSrc2} style={{marginLeft: '-25px', border: 'none', transform: 'scale(1.3)'}} />);
     }
 
     return ( 

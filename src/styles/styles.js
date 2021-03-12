@@ -18,7 +18,8 @@ createStyles({
     lessonsGroup: {
         display: 'flex',
         flexWrap: 'wrap',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginBottom: 20,
         
     },
     toptopChapHeader: {
@@ -41,6 +42,7 @@ createStyles({
         flexDirection: 'column',
         padding: '3%',
 
+
     },
     title: {
         textAlign: 'center',
@@ -62,6 +64,7 @@ createStyles({
         flexDirection: 'row',
         marginBottom: 20,
         color: '#F5F5F5',
+        overflow: 'hidden'
     },
     sideContent : {
         flex: 2,
@@ -79,7 +82,7 @@ createStyles({
         shadowRadius: 0,
         borderWidth: 0,
         elevation: 0,
-        border: 'none',
+        overflow: 'hidden'
     },
     sideBar: {
         display: 'flex',
@@ -90,6 +93,7 @@ createStyles({
         marginBottom: 20,
         marginRight: 20,
         marginLeft: 20,
+        overflow: 'hidden'
     },
     iconStyle: {
         display: 'flex',
@@ -180,12 +184,13 @@ createStyles({
         marginLeft: 'auto',
         marginRight: 'auto',
         position: 'relative',
-        marginBottom: 20,
         width: '16rem',     
         textAlign: 'center',
         cursor: 'pointer',
         overflow: 'visible',
-        marginTop: 'auto'
+        marginTop: 'auto',
+
+
     },
     buttonProgress: {
         position: 'absolute',

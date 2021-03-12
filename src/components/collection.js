@@ -2,32 +2,23 @@ import React, { useState } from 'react';
 import communication from '../communication/communication';
 import Loader from './loader';
 import Card from '@material-ui/core/Card';
-import CardView from '@material-ui/core/Card';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import {GiTrophy} from 'react-icons/gi';
 import Button from '@material-ui/core/Button';
 import AvatarGroups from './avatarGroups'
 import Lesson from './lesson';
-import config from '../config.json';
-import { GiAncientColumns } from 'react-icons/gi';
-import Collections from './collections';
 import SideBar from './sideBar';
 import TopChapters from './topChapters';
 import M from 'materialize-css';
 import ChapterCirc from './chapterCirc';
-import BorderLinearProgress from './progressBar';
 import UseTabletStyles from '../styles/stylesTablet'
 import UseMobileStyles from '../styles/stylesMobile';
 import UseStyles from '../styles/styles';
-import MyMediaQuery from './deviceDetect';
-import IconButton from '@material-ui/core/IconButton';
 import AvatarGroupsM from './avatarGrMobile';
 import Popup from './popupBtn';
-import AvatarsM from './avatarsMobile';
-import Avatar from '@material-ui/core/Avatar';
 import { useTabIndex } from 'react-tabindex';
 import Tooltip from "@material-ui/core/Tooltip";
+import imageTrop from './image/winner.png';
+
 
 const Devicedetect = () => {
     const [width, setWidth] = React.useState(window.innerWidth);
@@ -45,7 +36,7 @@ const Devicedetect = () => {
             UseTabletStyles()
         )
     }
-    else if (width <=500) {
+    else if (width <=400) {
         return (
             UseMobileStyles()
         )
@@ -130,7 +121,7 @@ function Collection(props, onClick) {
       }
 
         if (window.innerWidth <= 1224) {
-            return <div className={classes.content} >
+            return <div className={classes.content} style={{overflow: 'hidden'}}>
            
             <Card className={classes.sideContent}>
                 
@@ -139,7 +130,7 @@ function Collection(props, onClick) {
                 return (
                     <>
                     <TopChapters topChapters={topChapters} chapter={chapter} indx={indx} classes={classes}/>
-                    <ul class="collapsible popout" >
+                    <ul class="collapsible popout">
                         <li>
                         <div class="collapsible-header" >
                             
@@ -159,15 +150,17 @@ function Collection(props, onClick) {
     
                     <Card key={indx} className={classes.lessonsCard} >
                         
-                        <div className={classes.lessonsGroup}>
+                        
+                            <ul className={classes.lessonsGroup}>
                             {chapter.lessons.map((lesson, lessonIndex) => {
                                 return (
-                                    <div key={lessonIndex} className={classes.row}>
+                                    <li className={classes.row} key={lessonIndex}>
                                         <Lesson lesson={lesson}/>
-                                    </div>
+                                    </li>
                                 )
                             })}
-                        </div>                  
+                            </ul>
+                                         
                         
                     </Card>
                     </div>
@@ -180,7 +173,7 @@ function Collection(props, onClick) {
              <Card>
                 <div className={classes.btnPosition}>
                 <Tooltip placement="left" title="Totaloversikt over medaljer og pokaler">
-                <Button className={classes.buttonicon} tabIndex={1} onClick={togglePopup} alt="Knapp for medaljer"> <img src="../../img/trophyBtn.svg" /> </Button>
+                <Button className={classes.buttonicon} tabIndex={1} onClick={togglePopup} alt="Knapp for medaljer"> <img src={imageTrop} style={{height: 45, width: 45}} /> </Button>
                 </Tooltip>
                 {isOpen && <Popup
                     content={<>
@@ -194,7 +187,7 @@ function Collection(props, onClick) {
 
         }
         else {
-            return <div className={classes.content} >
+            return <div className={classes.content} style={{overflow: 'hidden'}} >
             <Card className={classes.sideContent}>
                 
             {chapters.map((chapter, indx) => {
@@ -223,15 +216,17 @@ function Collection(props, onClick) {
     
                     <Card key={indx} className={classes.lessonsCard}>
                         
-                        <div className={classes.lessonsGroup}>
+                        <ul className={classes.lessonsGroup}>
                             {chapter.lessons.map((lesson, lessonIndex) => {
                                 return (
-                                    <div key={lessonIndex} className={classes.row}>
+                                    <li className={classes.row}>
+                                    <div key={lessonIndex} >
                                         <Lesson lesson={lesson}/>
                                     </div>
+                                    </li>
                                 )
                             })}
-                        </div>  
+                        </ul>  
                         
                     </Card>
                     </div>
