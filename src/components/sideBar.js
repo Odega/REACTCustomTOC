@@ -6,7 +6,7 @@ import Trophies from './trophies';
 function SideBar({cmdr, classes}) {
     return (
     <React.Fragment>
-        <Card className={classes.sideBar}>
+        <Card className={classes.sideBar} >
             <Trophies cmdr={cmdr} classes={classes}/> 
         </Card> 
     </React.Fragment>

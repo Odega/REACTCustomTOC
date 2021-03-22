@@ -1,12 +1,5 @@
 import React from 'react';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-import {
-    BrowserView,
-    MobileView,
-    isBrowser,
-    isMobile,
-    isTablet
-  } from "react-device-detect";
 
   const UseTabletStyles = makeStyles(() =>
 createStyles({
@@ -18,22 +11,22 @@ createStyles({
     lessonsGroup: {
         display: 'flex',
         flexWrap: 'wrap',
-        justifyContent: 'center'
+        justifyContent: 'flex-start',
         
     },
     toptopChapHeader: {
-        variantMapping: 'h4',
-        marginLeft: 8,
-        fontSize: 26,
+        marginLeft: 20,
+        marginRight: 15,
+        fontSize: 24,
         marginTop: 15,
-        marginBottom: 5
+        marginBottom: 5,
+        fontWeight: 'bold',
     },
     topChapHeader: {
-        variantMapping: 'h5',
-        marginLeft: 12,
-        fontSize: 18,
-        marginBottom: 10
-
+        marginLeft: 25,
+        marginRight: 20,
+        fontSize: 20,
+        marginBottom: 10,
     },
     row: {
         display: 'flex',
@@ -49,6 +42,19 @@ createStyles({
         verticalAlign: 'middle',
         justifyContent: 'center',
         display: 'flex'
+
+    },
+    premieTitle: {
+        textAlign: 'center',
+        variantMapping: 'h4',
+        marginBottom: 15,
+        marginTop: 21,
+        color: "textprimary",
+        fontWeight: 'bold',
+        opacity: '80%',
+        fontSize: 26,
+        
+   
 
     },
     titleModul: {
@@ -97,10 +103,7 @@ createStyles({
         marginBottom: 20,
         marginRight: 20,
         marginLeft: 20,
-    },
-    iconStyle: {
-        display: 'flex',
-        justifyContent: 'center',
+        backgroundImage: 'radial-gradient(white, #006FAF )'
     },
     avatarGroupsStyle0: {
         margin: 'auto', 
@@ -199,7 +202,7 @@ createStyles({
         marginLeft: 'auto',
         marginRight: 'auto',
         position: 'relative',
-        marginBottom: 20,
+        marginBottom: 2,
         width: '16rem',
         textAlign: 'center',
         cursor: 'pointer',
@@ -250,7 +253,7 @@ createStyles({
     },
     lessonNameStyle: {
         variant: "inherit", 
-        variantMapping: "h2", 
+        fontWeight: 'bold', 
         align: 'center'
 
     },
@@ -260,7 +263,7 @@ createStyles({
         right: -14,
         top: -10,
         position: 'absolute',
-        transform: 'scale(1.5)',
+        transform: 'scale(1.6)',
 
 
     },
@@ -299,7 +302,7 @@ createStyles({
         cursor: 'pointer',
         height: 60,
         width: 60,
-        backgroundColor: '#3369ff',
+        backgroundColor: '#006FAF',
         borderRadius: '50%',
         boxShadow: 'inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17)',
     },
@@ -316,7 +319,18 @@ createStyles({
     tooltipWidth: {
         maxWidth: '150px',
         justifyContent: 'center'
-    }
+    },
+    premieTitle: {
+        textAlign: 'center',
+        variantMapping: 'h4',
+        marginBottom: 15,
+        marginTop: 21,
+        marginRight: 90, 
+        marginLeft: 90,
+        color: "textprimary",
+        fontWeight: 'bold',
+        fontSize: 24,
+    },
 }),
 )
 

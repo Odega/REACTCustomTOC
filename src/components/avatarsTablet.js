@@ -5,7 +5,7 @@ import imageSrc from './image/bronze.svg';
 import imageSrc2 from './image/gold.svg';
 import imageSrc3 from './image/silver.svg';
 
-function AvatarsM(chapter) {
+function AvatarsT(chapter) {
     var gold = 0;
     var silver = 0;
     var bronze = 0;
@@ -39,9 +39,9 @@ function AvatarsM(chapter) {
     }
 
     return ( 
-        <AvatarGroup max={1} spacing={1} style={{marginRight: 5}} >{trophiesGo} {trophiesSi} {trophiesBr}</AvatarGroup>
+        <AvatarGroup max={6} spacing={1} style={{marginRight: 5}} >{trophiesGo} {trophiesSi} {trophiesBr}</AvatarGroup>
     
     )
 }
 
-export default AvatarsM
+export default AvatarsT

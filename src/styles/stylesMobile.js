@@ -41,6 +41,19 @@ createStyles({
         display: 'flex'
 
     },
+    premieTitle: {
+        textAlign: 'center',
+        variantMapping: 'h4',
+        marginBottom: 15,
+        marginTop: 21,
+        color: "textprimary",
+        fontWeight: 'bold',
+        opacity: '80%',
+        fontSize: 26,
+        
+   
+
+    },
     titleModul: {
         justifyContent: 'center',
         flex: 1,
@@ -84,10 +97,6 @@ createStyles({
         marginBottom: 20,
         marginRight: 20,
         marginLeft: 20,
-    },
-    iconStyle: {
-        display: 'flex',
-        justifyContent: 'center',
     },
     avatarGroupsStyle0: {
         margin: 'auto', 
@@ -277,9 +286,9 @@ createStyles({
         alignContent: 'center',
         justifyContent: 'center',
         cursor: 'pointer',
-        height: '50px',
-        width: '50px',
-        backgroundColor: '#3369ff',
+        height: 60,
+        width: 60,
+        backgroundColor: '#006FAF',
         borderRadius: '50%',
         boxShadow: 'inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17)',
         

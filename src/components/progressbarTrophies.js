@@ -10,7 +10,7 @@ function LinearProgressWithLabel(props) {
         <Box width={'100%'} mr={-5} >
           <LinearProgress variant="determinate" {...props}/>
         </Box>
-        <Box minWidth={100}>
+        <Box minWidth={100}> 
           <Typography variant="body2" color="textSecondary">
             {props.value}
           </Typography>
@@ -23,16 +23,19 @@ function LinearProgressWithLabel(props) {
  
   const BorderLinearProgressTrophy = withStyles((theme) => ({
     root: {
-      height: 15,
+      height: 20,
       borderRadius: 50,
       lineHeight: 1,
+      boxShadow: '0px 1px 4px #999'
+      
     },
     colorPrimary: {
       backgroundColor: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
     },
     bar: {
       borderRadius: 5,
-      backgroundColor: '#039be5',
+      backgroundColor: '#00b300',
+    
     },
 
   }))(LinearProgressWithLabel);

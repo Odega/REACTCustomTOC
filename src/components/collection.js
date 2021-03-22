@@ -14,6 +14,7 @@ import UseTabletStyles from '../styles/stylesTablet'
 import UseMobileStyles from '../styles/stylesMobile';
 import UseStyles from '../styles/styles';
 import AvatarGroupsM from './avatarGrMobile';
+import AvatarGroupsT from './avatarGroupsTablet';
 import Popup from './popupBtn';
 import { useTabIndex } from 'react-tabindex';
 import Tooltip from "@material-ui/core/Tooltip";
@@ -120,7 +121,73 @@ function Collection(props, onClick) {
         setIsOpen(!isOpen);
       }
 
-        if (window.innerWidth <= 1224) {
+        if (window.innerWidth <= 1224 && window.innerWidth > 420) {
+            return <div className={classes.content} style={{overflow: 'hidden'}}>
+           
+            <Card className={classes.sideContent}>
+                
+            {chapters.map((chapter, indx) => {
+                //console.log(JSON.stringify({chapter}) + " - " + indx);
+                return (
+                    <>
+                    <TopChapters topChapters={topChapters} chapter={chapter} indx={indx} classes={classes}/>
+                    <ul class="collapsible popout" style={{marginLeft: 15, marginRight: 15}}>
+                        <li>
+                        <div class="collapsible-header" style={{borderStyle: 'outset', backgroundImage: 'linear-gradient(to right, #659DBD,  #FBEEC1)'}}>
+                            
+                            <Typography className={classes.titleModul}>
+                                {chapter.title}
+                            </Typography>
+                            <div className={classes.avatarGroupsStyle0}>
+                                <div id="avatGrp" className={classes.avatarGroupsStyle}>
+                                    <div className={classes.avatarGroupsStyle2}>
+                                        <AvatarGroupsT chapter={chapter} />
+                                    </div>
+                                    <ChapterCirc chapter={chapter} style={{margin: 'auto', justifycontent: 'center'}}/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapsible-body" style={{backgroundImage: 'linear-gradient(to right, #659DBD,  #FBEEC1)'}}>
+    
+                   
+                        
+                        
+                            <ul className={classes.lessonsGroup}>
+                            {chapter.lessons.map((lesson, lessonIndex) => {
+                                return (
+                                    <li className={classes.row} key={lessonIndex} >
+                                        <Lesson lesson={lesson}/>
+                                    </li>
+                                )
+                            })}
+                            </ul>
+                                         
+                        
+                
+                    </div>
+                        </li>
+                    </ul>
+                    </>
+            )
+            })} 
+            </Card>
+             <Card>
+                <div className={classes.btnPosition}>
+                <Tooltip placement="left" title="Totaloversikt over medaljer og pokaler">
+                <Button className={classes.buttonicon} tabIndex={1} onClick={togglePopup} alt="Knapp for medaljer"> <img src={imageTrop} style={{height: 45, width: 45}} /> </Button>
+                </Tooltip>
+                {isOpen && <Popup
+                    content={<>
+                    <SideBar className={classes.sideBar} classes={classes} chapters={chapters} cmdr={cmdr}/>
+                    </>}
+                    handleClose={togglePopup}
+                />}
+                    </div>
+            </Card>
+            </div>
+
+        }
+        else if (window.innerWidth <= 420) {
             return <div className={classes.content} style={{overflow: 'hidden'}}>
            
             <Card className={classes.sideContent}>
@@ -148,7 +215,7 @@ function Collection(props, onClick) {
                         </div>
                         <div class="collapsible-body">
     
-                    <Card key={indx} className={classes.lessonsCard} >
+                
                         
                         
                             <ul className={classes.lessonsGroup}>
@@ -162,7 +229,7 @@ function Collection(props, onClick) {
                             </ul>
                                          
                         
-                    </Card>
+        
                     </div>
                         </li>
                     </ul>
@@ -189,18 +256,18 @@ function Collection(props, onClick) {
         else {
             return <div className={classes.content} style={{overflow: 'hidden'}} >
             <Card className={classes.sideContent}>
-                
+
             {chapters.map((chapter, indx) => {
                 console.log(JSON.stringify({chapter}) + " - " + indx);
                 
                 return (
                     <>
-                    <TopChapters topChapters={topChapters} chapter={chapter} indx={indx} classes={classes} />
-                    <ul class="collapsible popout">
+                    <TopChapters topChapters={topChapters} chapter={chapter} indx={indx} classes={classes}/>
+                    <ul class="collapsible popout" style={{marginLeft: 15, marginRight: 15}}>
                         <li >
-                        <div class="collapsible-header" >
+                        <div class="collapsible-header" style={{borderStyle: 'outset', backgroundImage: 'linear-gradient(to right, orange, moccasin, white)'}} >
                             
-                            <Typography className={classes.title} >
+                            <Typography className={classes.title} style={{fontSize: 18, justifyContent: 'center'}} >
                                 {chapter.title}
                             </Typography>
                             <div className={classes.avatarGroupsStyle0}>
@@ -212,9 +279,9 @@ function Collection(props, onClick) {
                                 </div>
                             </div>
                         </div>
-                        <div class="collapsible-body">
+                        <div class="collapsible-body"  style={{backgroundImage: 'linear-gradient(to right, orange, white)'}}>
     
-                    <Card key={indx} className={classes.lessonsCard}>
+                    
                         
                         <ul className={classes.lessonsGroup}>
                             {chapter.lessons.map((lesson, lessonIndex) => {
@@ -228,15 +295,16 @@ function Collection(props, onClick) {
                             })}
                         </ul>  
                         
-                    </Card>
+                   
                     </div>
                         </li>
                     </ul>
+                    
                     </>
             )
             })} 
             </Card>
-                <SideBar className={classes.sideBar} classes={classes} chapters={chapters} cmdr={cmdr}/>
+                <SideBar className={classes.sideBar} classes={classes} chapters={chapters} cmdr={cmdr} />
             </div>
 
         } 

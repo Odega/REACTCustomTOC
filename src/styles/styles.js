@@ -1,39 +1,43 @@
 import React from 'react';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-import {
-    BrowserView,
-    MobileView,
-    isBrowser,
-    isMobile,
-    isTablet
-  } from "react-device-detect";
 
 const UseStyles = makeStyles(() =>
 createStyles({
     lessonsCard: {
         justifyContent: 'flex-end',
         marginBottom: 20,
+        
+        
+        //borderStyle: 'groove',
+        //backgroundImage: 'linear-gradient(#E7F5FE , #E7F5FE)'
 
     },
     lessonsGroup: {
         display: 'flex',
         flexWrap: 'wrap',
-        justifyContent: 'center',
-        marginBottom: 20,
+        justifyContent: 'flex-start',
+
         
     },
     toptopChapHeader: {
-        variantMapping: 'h4',
-        marginLeft: 8,
+        marginLeft: 20,
+        marginRight: 8,
         fontSize: 26,
         marginTop: 15,
-        marginBottom: 5
+        marginBottom: 5,
+        fontWeight: 'bold',
+
+
+  
     },
     topChapHeader: {
-        variantMapping: 'h5',
-        marginLeft: 12,
-        fontSize: 18,
-        marginBottom: 10
+        marginLeft: 25,
+        marginRight: 15,
+        fontSize: 22,
+        marginBottom: 10,
+        
+
+
 
     },
     row: {
@@ -41,30 +45,54 @@ createStyles({
         justifyContent: 'center',
         flexDirection: 'column',
         padding: '3%',
+        marginLeft: '10px',
+        marginRight: '10px',
+        
+        
+
 
 
     },
     title: {
         textAlign: 'center',
+        marginTop: 'auto',
+        marginBottom: 'auto',
+        color: "textprimary",
+
+        
+   
+
+    },
+    premieTitle: {
+        textAlign: 'center',
+        variantMapping: 'h4',
+        marginBottom: 15,
         marginTop: 21,
         color: "textprimary",
+        fontWeight: 'bold',
+        fontSize: 26,
+        
+   
 
     },
     titleModul: {
         justifyContent: 'center',
         flex: 1,
         margin: 'auto',
+
     },
     content : {
         display: 'flex',
         justifyContent: 'center',
         // flex: 1 gjør at siden endres avhengig av max bredde
-        paddingLeft: '5%',
-        paddingRight: '5%',
+        paddingLeft: '3%',
+        paddingRight: '3%',
         flexDirection: 'row',
         marginBottom: 20,
         color: '#F5F5F5',
-        overflow: 'hidden'
+        overflow: 'hidden',
+
+
     },
     sideContent : {
         flex: 2,
@@ -75,14 +103,16 @@ createStyles({
         marginLeft: 20,
         marginRight: 20,
         //backgroundColor: '#F5F5F5',
-        backgroundColor: 'white',
-        shadowColor: 'rgba(0,0,0, 0.0)',
-        shadowOffset: { height: 0, width: 0 },
+        shadowColor: 'black',
+        shadowOffset: { height: 2, width: 2 },
         shadowOpacity: 0, //default is 1
         shadowRadius: 0,
-        borderWidth: 0,
+        borderWidth: 10,
         elevation: 0,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        //backgroundColor: 'SkyBlue'
+        //backgroundImage: 'linear-gradient(hex(#FFECC7), hex())',
+
     },
     sideBar: {
         display: 'flex',
@@ -93,7 +123,10 @@ createStyles({
         marginBottom: 20,
         marginRight: 20,
         marginLeft: 20,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        backgroundColor: '#006FAF'
+        
+  
     },
     iconStyle: {
         display: 'flex',
@@ -154,7 +187,8 @@ createStyles({
         justifyContent: 'center',
         marginLeft: 'auto',
         marginRight: 'auto',
-        textAlign: 'center'
+        textAlign: 'center',
+        borderStyle: 'outset'
     },
     medaljeBarStyle: {
         display: 'flex',
@@ -189,6 +223,7 @@ createStyles({
         cursor: 'pointer',
         overflow: 'visible',
         marginTop: 'auto',
+        
 
 
     },
@@ -229,15 +264,14 @@ createStyles({
         
     },
     lessonTitle: {
-        fontWeight: 'bold',
         maxWidth: 400,
         height: 100
 
     },
     lessonNameStyle: {
         variant: "inherit", 
-        variantMapping: "h2", 
-        align: 'center'
+        align: 'center',
+        fontWeight: 'bold'
 
     },
 

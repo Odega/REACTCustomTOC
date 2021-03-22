@@ -55,7 +55,7 @@ function Lesson(props) {
     }, [props.lesson]);
 
     return <React.Fragment >
-        <Card className={classes.wrapper} onClick={onClick} tabIndex={0} onKeyPress={onKeyPress} style={!tried ? {opacity:'40%'} : {}}>
+        <Card className={classes.wrapper} onClick={onClick} tabIndex={0} onKeyPress={onKeyPress} style={!tried ? {filter: 'brightness(80%)'} : {}}>
         <div className={classes.medaljeStyle} >
                         <LessonTrophy props={props} />
                 </div>

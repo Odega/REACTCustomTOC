@@ -9,6 +9,8 @@ import Tooltip from "@material-ui/core/Tooltip";
 import imageSrc from './image/bronze.svg';
 import imageSrc2 from './image/gold.svg';
 import imageSrc3 from './image/silver.svg';
+import TopChapters from './topChapters';
+import topChapters from './collection';
 
 
 function Trophies({cmdr, classes}) {
@@ -107,31 +109,32 @@ function Trophies({cmdr, classes}) {
     if (pokBronze > 0){
         pokalB = true;
     }
+    
 
     return (
     <React.Fragment>
         <div style={{margin:20}}>
 
-            <Card className={classes.trophyWrapper}>
-            <Typography className={classes.title} color="textprimary" gutterBottom variant="h4">
-            Pokaler totalt
+            <Card className={classes.trophyWrapper} >
+            <Typography className={classes.premieTitle} >
+            Min premiesamling
             </Typography>
             <view className={classes.trophyView}>
             <Tooltip classes={{tooltip: classes.tooltipWidth}} tabindex={1} title="For å få en medalje i gull må du ha over 80% riktig i et kapittel. Når du har fått 5 medaljer i gull, får du en gullpokal. " placement="bottom" >
                 <view className={classes.trophyViewText} >
-                <GiTrophy className={classes.trophyStyle} style={!pokalG ? {opacity: '20%', color: 'white', stroke: 'black', strokeWidth: 5 } : {color: 'gold', stroke: 'black', strokeWidth: 2}}/>
+                <GiTrophy className={classes.trophyStyle} style={!pokalG ? {color: 'white', stroke: 'black', strokeWidth: 3 } : {color: 'gold', stroke: 'black', strokeWidth: 2}}/>
                 <strong className={classes.trophyText} style={!pokalG ? {color: 'white'} : {color: 'black'}}>{pokGold}</strong>
                 </view>
                 </Tooltip>
                 <Tooltip classes={{tooltip: classes.tooltipWidth}} tabindex={1} title="For å få en medalje i sølv må du ha over 50% riktig i et kapittel. Når du har fått 5 medaljer i sølv, får du en sølvpokal. " placement="bottom">
                 <view className={classes.trophyViewText} >
-                <GiTrophy className={classes.trophyStyle} style={!pokalS ? {opacity: '20%', color: 'white', stroke: 'black', strokeWidth: 5 } : {color: 'silver', stroke: 'black', strokeWidth: 2}}/>
+                <GiTrophy className={classes.trophyStyle} style={!pokalS ? { color: 'white', stroke: 'black', strokeWidth: 3 } : {color: 'silver', stroke: 'black', strokeWidth: 2}}/>
                 <strong className={classes.trophyText} style={!pokalS ? {color: 'white'} : {color: 'black'}}>{pokSilver}</strong>
                 </view>
                 </Tooltip>
                 <Tooltip classes={{tooltip: classes.tooltipWidth}} tabindex={1} title="For å få en medalje i bronse må du ha over 20% riktig i et kapittel. Når du har fått 5 medaljer i bronse, får du en bronsepokal. " placement="bottom" >
                 <view className={classes.trophyViewText} >
-                <GiTrophy className={classes.trophyStyle} style={!pokalB ? {opacity: '20%', color: "white", stroke: 'black', strokeWidth: 5 } : {color: "rgb(205, 127, 50)", stroke: 'black', strokeWidth: 2}} />
+                <GiTrophy className={classes.trophyStyle} style={!pokalB ? { color: "white", stroke: 'black', strokeWidth: 3 } : {color: "rgb(205, 127, 50)", stroke: 'black', strokeWidth: 2}} />
                 <strong className={classes.trophyText} style={!pokalB ? {color: 'white'} : {color: 'black'}}>{pokBronze}</strong>
                 </view>
                 </Tooltip>
